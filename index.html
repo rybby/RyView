@@ -1,0 +1,92 @@
+<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=450, user-scalable=no"/><meta name="robots" content="all"/><meta name="author" content="ry"/><meta name="keywords" content="锐视|RyView|网页工具|音频可视化|数据可视化|文字说|短视频"/><meta name="description" content="锐视|RyView|网页工具|音频可视化|数据可视化|文字说|短视频"/><title id="TIT">轻松制作短视频！- 锐视(RyView) - 音频可视化加数据可视化网页工具</title><style type="text/css">
+*{margin:0; padding:0; border:0; background-color:transparent; font-style:normal; text-decoration:none; overflow:hidden;}
+html,body{position:relative; height:100%; overflow:hidden;}
+body{color:#333; font-family:宋体; font-size:16px; line-height:150%; text-align:center; overflow:hidden;}
+#RyView b{display:inline; font-weight:normal;}
+#RyView a{color:#158; text-decoration:none; display:inline; cursor:pointer;}
+#RyView a:hover{color:#F22;}
+#RyView i{display:block; font-style:normal;}
+#RyView .cl{display:block; height:0; clear:both;}
+
+@font-face{font-family:'kuaile'; src: url(font/kuaile.ttf);}
+@font-face{font-family:'kuhei'; src:url(font/kuhei.ttf);}
+@font-face{font-family:'pangmen'; src:url(font/pangmen.ttf);}
+@font-face{font-family:'xiaobai'; src:url(font/xiaobai.ttf);}
+@font-face{font-family:'zhenyan'; src:url(font/zhenyan.ttf);}
+
+#RyView{position:relative; margin:0; padding:0; text-align:center; overflow:hidden;}
+#rvVB{position:relative; width:864px; height:100%; margin:0; padding:0; float:left; display:inline; overflow:hidden;}
+#rvTB{position:relative; width:300px; height:100%; margin:0; padding:0; float:right; display:inline; border:1px solid #dde; text-align:left; overflow:hidden;}
+.RVMB #rvVB, .RVMB #rvTB{width:auto; height:auto; float:none; display:block;}
+.RVMB #rvTB{margin:0 10px;}
+
+#rvCvsBox{position:relative; width:854px; height:480px; margin:10px; background:#000;}
+canvas{position:absolute; left:0; top:0;}
+#rvCvsTmp{opacity:0;}
+#rvVdo{margin-top:10px; display:none; background:#000;}
+
+#rvTB0{background:#dcd;}
+.rvBtn,.rvBtn0{height:24px; line-height:24px; margin-left:-1px; padding:0 5px; float:left; display:inline; border:1px solid #bbc; background:#ccd; cursor:pointer;}
+.rvBtn:hover,.rvBtn0:hover,.rvFont:hover{background:#aab;}
+.rvBtn:active,.rvBtn0:active,.rvFont:active{background:#99a;}
+.rvBtn{margin:5px 0 0 5px;}
+.rvFont{line-height:36px; margin:5px 5px 0 5px; padding:0 5px; display:block; border:1px solid #bbc; background:#ccd; cursor:pointer; font-size:36px; word-wrap:break-word; word-break:break-all;}
+.rvFile{width:35px; height:24px; margin-top:-24px; display:block; background:#f22; opacity:.01; cursor:pointer;}
+
+#rvTB1{padding-bottom:5px; background:#ede;}
+.rvBtn1{height:24px; line-height:24px; margin:5px 0 0 5px; padding:0 5px; float:left; display:inline; border:1px solid #ccd; cursor:pointer; background:#dde;}
+.rvBtn1:hover{background:#aab;}
+.rvBtn1:active{background:#99a;}
+
+#rvTB2{padding-bottom:5px; background:#fef; overflow:auto;}
+.rvBtn2{height:24px; line-height:24px; margin:5px 5px 0 5px; padding:0 5px; border:1px solid #dde; cursor:pointer; background:#eef; white-space:nowrap;}
+.rvBtn2:hover{background:#aab;}
+.rvBtn2:active{background:#99a;}
+#RyView b.rvVal,#RyView input.rvVal{padding:0 3px; color:#f22; outline:none;}
+.rvLabB{margin:5px 5px 0 5px; border:1px solid #ddc; background:#ffe;}
+.rvLabT{height:24px; border-bottom:1px solid #ddc; background:#ffd;}
+.rvLab{height:24px; line-height:24px; padding:0 10px; background:#dd2; color:#fff; display:inline; float:left;}
+.rvLabX{width:24px; height:24px; line-height:24px; background:#f22; color:#fff; text-align:center; display:inline; float:right; cursor:pointer; font-family:verdana;}
+.rvLabC{padding-bottom:5px; text-align:left;}
+
+#rvEB{position:absolute; left:35%; top:35%; z-index:50000; width:320px; height:180px; margin:-90px 0 0 -160px; border:1px solid #ddc; background:#ffe;}
+.rvEbT{height:24px; border-bottom:1px solid #ddc; background:#ffd;}
+.rvEbLab{height:24px; line-height:24px; padding:0 10px; background:#dd2; color:#fff; display:inline; float:left;}
+.rvEbX,.rvEbOk{width:24px; height:24px; line-height:24px; background:#f22; color:#fff; text-align:center; display:inline; float:right; cursor:pointer; font-family:verdana;}
+.rvEbOk{background:#f90;}
+#rvED{width:310px; height:145px; line-height:120%; padding:5px; overflow-y:auto; outline:none; font-size:16px;}
+
+#rvHsb{position:absolute; left:50px; top:50px; z-index:1000000; width:340px; height:160px; margin:0; padding:0; border:1px solid #bbc; background:#ccd;}
+#rvHsbCb{position:absolute; width:150px; height:150px; left:5px; top:5px; cursor:crosshair;}
+#rvHsbH,#rvHsbS,#rvHsbB{position:absolute; left:0px; top:0px; width:150px; height:150px;}
+#rvHsbH{background:#f00;}
+#rvHsbS{background:#fff; background:linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));}
+#rvHsbB{background:#000; background:linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));}
+#rvHsbCS,.rvHsbCS1,.rvHsbCS2{position:absolute; width:20px; height:20px; left:139px; top:-9px;}
+.rvHsbCS1{left:9px; top:0px; width:2px; height:20px;}
+.rvHsbCS2{left:0px; top:9px; width:20px; height:2px;}
+.CS1 .rvHsbCS1,.CS1 .rvHsbCS2{background:#fff;}
+.CS2 .rvHsbCS1,.CS2 .rvHsbCS2{background:#000;}
+#rvHsbHue{position:absolute; left:160px; top:5px; width:20px; height:150px; cursor:crosshair; background:#000; background:linear-gradient(to bottom, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);}
+#rvHsbV{position:absolute; left:185px; top:5px; width:150px; height:150px; text-align:left;}
+.rvHsbVl{width:148px; height:24px; line-height:24px; margin-bottom:5px; border:1px solid #bbc; background:#dde;}
+#rvHsbC1,#rvHsbC2,#rvHsbOk{width:50px; height:26px; display:inline-block;}
+#rvHsbC1{background:#f00;}
+#rvHsbC2{background:#f00;}
+#rvHsbOk{width:47px; border-left:1px solid #bbc; background:#dd2; cursor:pointer; text-align:center;}
+.rvHsbN,.rvHsbT{height:24px; line-height:24px; display:inline-block;}
+.rvHsbN{width:15px; margin-left:3px; text-align:center;}
+.rvHsbT{width:30px;}
+.rvHsbT input{width:28px; height:14px; line-height:14px; border:1px solid #bbc; background:#eef; text-align:center; outline:none;}
+.rvHsbCv .rvHsbN{width:35px; cursor:pointer;}
+.rvHsbCv .rvHsbT{width:106px;}
+.rvHsbCv .rvHsbT input{width:98px; padding:0 3px; text-align:left;}
+
+#rvFwin{position:absolute; left:50%; top:50%; z-index:100000; width:320px; height:180px; margin:-90px 0 0 -160px;}
+#rvFwin .rvLabC{height:150px; overflow-y:auto;}
+#rvFwin .rvMsg{padding:5px 5px 0 5px;}
+.rvLabC .rvBtn{word-wrap:break-word; word-break:break-all;}
+
+.s_{background:#f22; color:#fff;}
+.h_{display:none;}
+</style></head><body></body><script type="text/javascript" src="js/ryview.js"></script><script type="text/javascript">RV.init();</script></html>
