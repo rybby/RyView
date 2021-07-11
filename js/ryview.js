@@ -16,7 +16,7 @@ RV.init();
 如果你有能力开发H5精灵或采集可视化数据，欢迎你将自己的资源提交到锐视的云端库，越多开发者参与进来，视频制作用户就拥有越多资源可选择。后续锐视会推出多种变现途径为开发者实现收入，还会对各种资源进行榜单排名以及开发者收入排名等。希望大家踊跃参与，让我们打造一个庞大的资源库，让短视频制作更简单！
 */
 
-const RVHELP = '锐视(RyView)是一款网页工具，可轻松制作音频可视化加数据可视化以及文字说短视频。该工具由程序员锐(<a href="http://ry.eefaa.cn/" target="_blank">ry.eefaa.cn</a>)开发并以开源项目发布，目前保管在GitHub源码仓库。锐视官方主页地址：<a href="http://rymaa.cn/" target="_blank">rymaa.cn</a>，博客地址：<a href="http://rv.eefaa.cn/" target="_blank">rv.eefaa.cn</a>。如果你有能力开发H5精灵或采集可视化数据，欢迎你将自己的资源提交到锐视的云端库，越多开发者参与进来，视频制作用户就拥有越多资源可选择。后续锐视会推出多种变现途径为开发者实现收入，还会对各种资源进行榜单排名以及开发者收入排名等。希望大家踊跃参与，让我们打造一个庞大的资源库，让短视频制作更简单！';
+const RVHELP = '锐视(RyView)是一款网页工具，可轻松制作音频可视化加数据可视化以及文字说短视频。该工具由程序员锐(<a href="http://ry.eefaa.cn/" target="_blank">ry.eefaa.cn</a>)开发并以开源项目发布，目前保管在<a href="https://github.com/rybby/RyView/" target="_blank">GitHub</a>源码仓库。锐视官方主页地址：<a href="http://rymaa.cn/" target="_blank">rymaa.cn</a>，博客地址：<a href="http://rv.eefaa.cn/" target="_blank">rv.eefaa.cn</a>。如果你有能力开发H5精灵或采集可视化数据，欢迎你将自己的资源提交到锐视的云端库，越多开发者参与进来，视频制作用户就拥有越多资源可选择。后续锐视会推出多种变现途径为开发者实现收入，还会对各种资源进行榜单排名以及开发者收入排名等。希望大家踊跃参与，让我们打造一个庞大的资源库，让短视频制作更简单！';
 
 const CL = console.log;
 const RV = RyView = {
@@ -28,9 +28,16 @@ const RV = RyView = {
     FPS: 30, // frames per second
     DT: 300000, // duration(millisecond)
     PG: 0, // progress(millisecond)
+    FP: 0, // FPS progress
     ST: 0, // start time
     PT: 0, // pause time
     LT: 0, // last time
+    
+    exp1: 't1 网络视频平台用户月活量\n\nt2 2021-01\ntp 1\n\nnm 腾讯视频\nvl 50000w\n\nnm 西瓜视频\nvl 45000w\n\nnm 搜狐视频\nvl 28000w\n\nnm 优酷视频\nvl 35000w\n\nnm 百度视频\nvl 32000w\n\n\nt2 2021-02\ntp 1\n\nnm 腾讯视频\nvl 56000w\n\nnm 西瓜视频\nvl 48000w\n\nnm 搜狐视频\nvl 32000w\n\nnm 优酷视频\nvl 38000w\n\nnm 百度视频\nvl 35000w\n\n\nt2 2021-03\ntp 1\n\nnm 腾讯视频\nvl 52000w\n\nnm 西瓜视频\nvl 43000w\n\nnm 搜狐视频\nvl 26000w\n\nnm 优酷视频\nvl 31000w\n\nnm 百度视频\nvl 35000w\n',
+    
+    exp2: 't1 我就是过来炫个富的，你满意个der啊\n\nt2 凭实力相亲，有钱就是任性\ntp 2\n\nnm 张三\nwd 你好，你是王阿姨介绍的相亲对象吗？\nnm 李四\nwd 对，我就是，不好意思，我迟到了！\n\nnm 张三\nwd 那我们进入主题吧！\nnm 李四\nwd 好鸭！\n\nnm 张三\nwd 你有房吗？\nnm 李四\nwd 北京二环有3套住宅！京西有5栋酒店！\n\nnm 张三\nwd 那你有车吗？\nnm 李四\nwd 2辆奔驰，3辆宝马，10台挖掘机，30辆泥头车！\n\nnm 张三\nwd 那你有存款吗？\nnm 李四\nwd 没有，但我有10位数余额！\n\nnm 张三\nwd 嗯，我对你很满意！\nnm 李四\nwd 你满意什么？\n\nnm 张三\nwd 和你在一起鸭，我同意做你女朋友！\nnm 李四\nwd 你满意有个卵用！我就是过来炫个富的，还你满意，你满意个der啊！\n\nnm 张三\nwd 你...神经病！\nnm 李四\nwd 不好意思，我还有其它地方要赶去炫富呢！告辞！\n',
+    
+    css: '!8!hmargin!n0!m!wpadding!n0!m!wborder!n0!m!wbackground!ccolor!ntransparent!m!wfont!cstyle!nnormal!m!wtext!cdecoration!nnone!m!woverflow!nhidden!m!j!zhtml!qbody!hposition!nrelative!m!wheight!n100!5!m!woverflow!nhidden!m!j!zbody!hcolor!n!3333!m!wfont!cfamily!n宋体!m!wfont!csize!n16px!m!wline!cheight!n150!5!m!wtext!calign!ncenter!m!woverflow!nhidden!m!j!z!3RyView!wb!hdisplay!ninline!m!wfont!cweight!nnormal!m!j!z!3RyView!wa!hcolor!n!3158!m!wtext!cdecoration!nnone!m!wdisplay!ninline!m!wcursor!npointer!m!j!z!3RyView!wa!nhover!hcolor!n!3F22!m!j!z!3RyView!wi!hdisplay!nblock!m!wfont!cstyle!nnormal!m!j!z!3RyView!w!scl!hdisplay!nblock!m!wheight!n0!m!wclear!nboth!m!j!z!z!2font!cface!hfont!cfamily!n!okuaile!o!m!wsrc!n!wurl!9font!ukuaile!sttf!a!m!j!z!2font!cface!hfont!cfamily!n!okuhei!o!m!wsrc!nurl!9font!ukuhei!sttf!a!m!j!z!2font!cface!hfont!cfamily!n!opangmen!o!m!wsrc!nurl!9font!upangmen!sttf!a!m!j!z!2font!cface!hfont!cfamily!n!oxiaobai!o!m!wsrc!nurl!9font!uxiaobai!sttf!a!m!j!z!2font!cface!hfont!cfamily!n!ozhenyan!o!m!wsrc!nurl!9font!uzhenyan!sttf!a!m!j!z!z!3RyView!hposition!nrelative!m!wmargin!n0!m!wpadding!n0!m!wtext!calign!ncenter!m!woverflow!nhidden!m!j!z!3rvVB!hposition!nrelative!m!wwidth!n864px!m!wheight!n100!5!m!wmargin!n0!m!wpadding!n0!m!wfloat!nleft!m!wdisplay!ninline!m!woverflow!nhidden!m!j!z!3rvTB!hposition!nrelative!m!wwidth!n300px!m!wheight!n100!5!m!wmargin!n0!m!wpadding!n0!m!wfloat!nright!m!wdisplay!ninline!m!wborder!n1px!wsolid!w!3dde!m!wtext!calign!nleft!m!woverflow!nhidden!m!j!z!sRVMB!w!3rvVB!q!w!sRVMB!w!3rvTB!hwidth!nauto!m!wheight!nauto!m!wfloat!nnone!m!wdisplay!nblock!m!j!z!sRVMB!w!3rvTB!hmargin!n0!w10px!m!j!z!z!3rvCvsBox!hposition!nrelative!m!wwidth!n854px!m!wheight!n480px!m!wmargin!n10px!m!wbackground!n!3000!m!j!zcanvas!hposition!nabsolute!m!wleft!n0!m!wtop!n0!m!j!z!3rvCvsHide!q!3rvCvsTmp!hopacity!n0!m!j!z!3rvVdo!hmargin!ctop!n10px!m!wdisplay!nnone!m!wbackground!n!3000!m!j!z!z!3rvTB0!hbackground!n!3dcd!m!j!z!srvBtn!q!srvBtn0!hheight!n24px!m!wline!cheight!n24px!m!wmargin!cleft!n!c1px!m!wpadding!n0!w5px!m!wfloat!nleft!m!wdisplay!ninline!m!wborder!n1px!wsolid!w!3bbc!m!wbackground!n!3ccd!m!wcursor!npointer!m!j!z!srvBtn!nhover!q!srvBtn0!nhover!q!srvFont!nhover!hbackground!n!3aab!m!j!z!srvBtn!nactive!q!srvBtn0!nactive!q!srvFont!nactive!hbackground!n!399a!m!j!z!srvBtn!hmargin!n5px!w0!w0!w5px!m!j!z!srvFont!hline!cheight!n36px!m!wmargin!n5px!w5px!w0!w5px!m!wpadding!n0!w5px!m!wdisplay!nblock!m!wborder!n1px!wsolid!w!3bbc!m!wbackground!n!3ccd!m!wcursor!npointer!m!wfont!csize!n36px!m!wword!cwrap!nbreak!cword!m!wword!cbreak!nbreak!call!m!j!z!srvFile!hwidth!n35px!m!wheight!n24px!m!wmargin!ctop!n!c24px!m!wdisplay!nblock!m!wbackground!n!3f22!m!wopacity!n!s01!m!wcursor!npointer!m!j!z!z!3rvTB1!hpadding!cbottom!n5px!m!wbackground!n!3ede!m!j!z!srvBtn1!hheight!n24px!m!wline!cheight!n24px!m!wmargin!n5px!w0!w0!w5px!m!wpadding!n0!w5px!m!wfloat!nleft!m!wdisplay!ninline!m!wborder!n1px!wsolid!w!3ccd!m!wcursor!npointer!m!wbackground!n!3dde!m!j!z!srvBtn1!nhover!hbackground!n!3aab!m!j!z!srvBtn1!nactive!hbackground!n!399a!m!j!z!z!3rvTB2!hpadding!cbottom!n5px!m!wbackground!n!3fef!m!woverflow!nauto!m!j!z!srvBtn2!hheight!n24px!m!wline!cheight!n24px!m!wmargin!n5px!w5px!w0!w5px!m!wpadding!n0!w5px!m!wborder!n1px!wsolid!w!3dde!m!wcursor!npointer!m!wbackground!n!3eef!m!wwhite!cspace!nnowrap!m!j!z!srvBtn2!nhover!hbackground!n!3aab!m!j!z!srvBtn2!nactive!hbackground!n!399a!m!j!z!3RyView!wb!srvVal!q!3RyView!winput!srvVal!hpadding!n0!w3px!m!wcolor!n!3f22!m!woutline!nnone!m!j!z!srvLabB!hmargin!n5px!w5px!w0!w5px!m!wborder!n1px!wsolid!w!3ddc!m!wbackground!n!3ffe!m!j!z!srvLabT!hheight!n24px!m!wborder!cbottom!n1px!wsolid!w!3ddc!m!wbackground!n!3ffd!m!j!z!srvLab!hheight!n24px!m!wline!cheight!n24px!m!wpadding!n0!w10px!m!wbackground!n!3dd2!m!wcolor!n!3fff!m!wdisplay!ninline!m!wfloat!nleft!m!j!z!srvLabDN!hbackground!n!3ee5!m!j!z!srvLabX!q!srvLabAdd!hwidth!n24px!m!wheight!n24px!m!wline!cheight!n24px!m!wbackground!n!3f22!m!wcolor!n!3fff!m!wtext!calign!ncenter!m!wdisplay!ninline!m!wfloat!nright!m!wcursor!npointer!m!wfont!cfamily!nverdana!m!j!z!srvLabAdd!hbackground!n!3f90!m!j!z!srvLabC!hpadding!cbottom!n5px!m!wtext!calign!nleft!m!j!z!z!3rvEB!hposition!nabsolute!m!wleft!n35!5!m!wtop!n35!5!m!wz!cindex!n50000!m!wwidth!n320px!m!wheight!n180px!m!wmargin!n!c90px!w0!w0!w!c160px!m!wborder!n1px!wsolid!w!3ddc!m!wbackground!n!3ffe!m!j!z!srvEbT!hheight!n24px!m!wborder!cbottom!n1px!wsolid!w!3ddc!m!wbackground!n!3ffd!m!j!z!srvEbLab!hheight!n24px!m!wline!cheight!n24px!m!wpadding!n0!w10px!m!wbackground!n!3dd2!m!wcolor!n!3fff!m!wdisplay!ninline!m!wfloat!nleft!m!j!z!srvEbX!q!srvEbOk!hwidth!n24px!m!wheight!n24px!m!wline!cheight!n24px!m!wbackground!n!3f22!m!wcolor!n!3fff!m!wtext!calign!ncenter!m!wdisplay!ninline!m!wfloat!nright!m!wcursor!npointer!m!wfont!cfamily!nverdana!m!j!z!srvEbOk!hbackground!n!3f90!m!j!z!3rvED!hwidth!n310px!m!wheight!n145px!m!wline!cheight!n120!5!m!wpadding!n5px!m!woverflow!cy!nauto!m!woutline!nnone!m!wfont!csize!n16px!m!j!z!z!3rvHsb!hposition!nabsolute!m!wleft!n50px!m!wtop!n50px!m!wz!cindex!n1000000!m!wwidth!n340px!m!wheight!n160px!m!wmargin!n0!m!wpadding!n0!m!wborder!n1px!wsolid!w!3bbc!m!wbackground!n!3ccd!m!j!z!3rvHsbCb!hposition!nabsolute!m!wwidth!n150px!m!wheight!n150px!m!wleft!n5px!m!wtop!n5px!m!wcursor!ncrosshair!m!j!z!3rvHsbH!q!3rvHsbS!q!3rvHsbB!hposition!nabsolute!m!wleft!n0px!m!wtop!n0px!m!wwidth!n150px!m!wheight!n150px!m!j!z!3rvHsbH!hbackground!n!3f00!m!j!z!3rvHsbS!hbackground!n!3fff!m!wbackground!nlinear!cgradient!9to!wright!q!wrgba!9255!q255!q255!q1!a!q!wrgba!9255!q255!q255!q0!a!a!m!j!z!3rvHsbB!hbackground!n!3000!m!wbackground!nlinear!cgradient!9to!wtop!q!wrgba!90!q0!q0!q1!a!q!wrgba!90!q0!q0!q0!a!a!m!j!z!3rvHsbCS!q!srvHsbCS1!q!srvHsbCS2!hposition!nabsolute!m!wwidth!n20px!m!wheight!n20px!m!wleft!n139px!m!wtop!n!c9px!m!j!z!srvHsbCS1!hleft!n9px!m!wtop!n0px!m!wwidth!n2px!m!wheight!n20px!m!j!z!srvHsbCS2!hleft!n0px!m!wtop!n9px!m!wwidth!n20px!m!wheight!n2px!m!j!z!sCS1!w!srvHsbCS1!q!sCS1!w!srvHsbCS2!hbackground!n!3fff!m!j!z!sCS2!w!srvHsbCS1!q!sCS2!w!srvHsbCS2!hbackground!n!3000!m!j!z!3rvHsbHue!hposition!nabsolute!m!wleft!n160px!m!wtop!n5px!m!wwidth!n20px!m!wheight!n150px!m!wcursor!ncrosshair!m!wbackground!n!3000!m!wbackground!nlinear!cgradient!9to!wbottom!q!w!3f00!q!w!3ff0!q!w!30f0!q!w!30ff!q!w!300f!q!w!3f0f!q!w!3f00!a!m!j!z!3rvHsbV!hposition!nabsolute!m!wleft!n185px!m!wtop!n5px!m!wwidth!n150px!m!wheight!n150px!m!wtext!calign!nleft!m!j!z!srvHsbVl!hwidth!n148px!m!wheight!n24px!m!wline!cheight!n24px!m!wmargin!cbottom!n5px!m!wborder!n1px!wsolid!w!3bbc!m!wbackground!n!3dde!m!j!z!3rvHsbC1!q!3rvHsbC2!q!3rvHsbOk!hwidth!n50px!m!wheight!n26px!m!wdisplay!ninline!cblock!m!j!z!3rvHsbC1!hbackground!n!3f00!m!j!z!3rvHsbC2!hbackground!n!3f00!m!j!z!3rvHsbOk!hwidth!n47px!m!wborder!cleft!n1px!wsolid!w!3bbc!m!wbackground!n!3dd2!m!wcursor!npointer!m!wtext!calign!ncenter!m!j!z!srvHsbN!q!srvHsbT!hheight!n24px!m!wline!cheight!n24px!m!wdisplay!ninline!cblock!m!j!z!srvHsbN!hwidth!n15px!m!wmargin!cleft!n3px!m!wtext!calign!ncenter!m!j!z!srvHsbT!hwidth!n30px!m!j!z!srvHsbT!winput!hwidth!n28px!m!wheight!n14px!m!wline!cheight!n14px!m!wborder!n1px!wsolid!w!3bbc!m!wbackground!n!3eef!m!wtext!calign!ncenter!m!woutline!nnone!m!j!z!srvHsbCv!w!srvHsbN!hwidth!n35px!m!wcursor!npointer!m!j!z!srvHsbCv!w!srvHsbT!hwidth!n106px!m!j!z!srvHsbCv!w!srvHsbT!winput!hwidth!n98px!m!wpadding!n0!w3px!m!wtext!calign!nleft!m!j!z!z!3rvFwin!hposition!nabsolute!m!wleft!n50!5!m!wtop!n50!5!m!wz!cindex!n100000!m!wwidth!n320px!m!wheight!n180px!m!wmargin!n!c90px!w0!w0!w!c160px!m!j!z!3rvFwin!w!srvLabC!hheight!n150px!m!woverflow!cy!nauto!m!j!z!3rvFwin!w!srvMsg!hpadding!n5px!w5px!w0!w5px!m!j!z!srvLabC!w!srvBtn!hword!cwrap!nbreak!cword!m!wword!cbreak!nbreak!call!m!j!z!z!ss!d!hbackground!n!3f22!m!wcolor!n!3fff!m!j!z!sh!d!hdisplay!nnone!m!j',
     
     ini2: null,
     ini: {
@@ -41,34 +48,36 @@ const RV = RyView = {
         ttsr: 1.2,
         ttsv: 1,
         dmn: ',pe,re,se,inp,sys,loc,net,', // del menu
-        out: {
-            des: '导出',
+        vdo: {
+            des: '视频',
             vc: 'vp8',
             vf: 'mp4',
             vp: '16:9',
             vs: '720P',
+            va: '',
+            rs: '0',
         },
         
         ft: {
             des: '字体',
             otn: 'zhenyan',
-            ots: '32px',
+            ots: '72px',
             otc: '#ff0',
             otw: '0',
-            otbs: '1px',
-            otbc: '#000',
+            otbs: '5px',
+            otbc: '#f00',
             ptn: 'pangmen',
-            pts: '26px',
-            ptc: '0',
+            pts: '48px',
+            ptc: '#000',
             ptw: '0',
-            ptbs: '1px',
-            ptbc: '#000',
+            ptbs: '2px',
+            ptbc: '#fff',
             wn: 'xiaobai',
             ws: '24px',
             wc: '#000',
             ww: '0',
             wbs: '0px',
-            wbc: '#000',
+            wbc: '#f00',
             rn: 'Simsun',
             rs: '20px',
             rc: '#000',
@@ -81,46 +90,62 @@ const RV = RyView = {
             des: '精灵',
             bg: {
                 des: '背景精灵',
-                id: 'bg_0',
+                id: 'bg_lspot',
                 sn: '梦幻光斑',
-                sc: '.25, .35',
+                sc: '.15, .25',
+                sr: '.02, .15',
                 sh: '0, 360',
+                ss: '25, 100',
+                sb: '55, 100',
+                sa: '.1, .5',
                 hr: '75, 95',
-                sr: '.02, .15'
             },
             mot: {
                 des: '运动精灵',
-                id: 'mot_0',
+                id: 'mot_dpopo',
                 sn: '梦幻泡泡',
                 sc: '.02, .03',
                 sr: '.08, .15',
-                ss: '.8, 1'
+                sp: '.8, 1',
+                sh: '0, 360',
+                ss: '25, 100',
+                sb: '55, 100',
+                sa: '.25, .35',
             },
             ado: {
                 des: '音频精灵',
-                id: 'ado_0',
+                id: 'ado_eaper',
                 sn: '爆炸光圈',
-                bs: '1'
+                bs: '1',
             },
             mat: {
                 des: '比赛精灵',
-                id: 'mat_0',
-                sn: '锐比丘',
+                id: 'mat_rypeter',
+                sn: '锐比特',
                 sh: '0, 360',
-                sf: '0',
-                ss: '0',
+                ss: '25, 100',
+                sb: '55, 100',
+                sa: '.55, .75',
+                ar: '2',
+                fr: '90',
             },
             act: {
                 des: '角色精灵',
-                id: 'act_0',
-                sn: '锐视通',
+                id: 'act_rypenn',
+                sn: '锐比安',
                 sh: '0, 360',
+                ss: '25, 100',
+                sb: '55, 100',
+                sa: '.55, .75',
             },
             ass: {
                 des: '辅助精灵',
-                id: 'ass_0',
+                id: 'ass_rypeso',
                 sn: '锐比兽',
                 sh: '0, 360',
+                ss: '25, 100',
+                sb: '55, 100',
+                sa: '.55, .75',
             },
         },
     },
@@ -141,12 +166,14 @@ const RV = RyView = {
             loc: '本地',
             net: '网络',
             
-            out: {
-                des: '导出',
+            vdo: {
+                des: '视频',
                 vc: '视频编码',
                 vf: '视频格式',
                 vp: '视频比例',
                 vs: '视频尺寸',
+                va: '视频作者',
+                rs: '重设配置',
             },
             
             ft: {
@@ -184,9 +211,12 @@ const RV = RyView = {
                     id: '精灵ID',
                     sn: '精灵名称',
                     sc: '精灵数量',
+                    sr: '精灵半径',
                     sh: '精灵色相',
+                    ss: '精灵饱和度',
+                    sb: '精灵亮度',
+                    sa: '精灵透明度',
                     hr: '色相范围',
-                    sr: '精灵半径'
                 },
                 mot: {
                     des: '运动精灵',
@@ -194,33 +224,45 @@ const RV = RyView = {
                     sn: '精灵名称',
                     sc: '精灵数量',
                     sr: '精灵半径',
-                    ss: '精灵速度'
+                    sp: '精灵速度',
+                    sh: '精灵色相',
+                    ss: '精灵饱和度',
+                    sb: '精灵亮度',
+                    sa: '精灵透明度',
                 },
                 ado: {
                     des: '音频精灵',
                     id: '精灵ID',
                     sn: '精灵名称',
-                    bs: '边框大小'
+                    bs: '边框大小',
                 },
                 mat: {
                     des: '比赛精灵',
                     id: '精灵ID',
-                    sn: '精灵名称',
                     sh: '精灵色相',
-                    sf: '精灵表情',
-                    ss: '精灵速度',
+                    ss: '精灵饱和度',
+                    sb: '精灵亮度',
+                    sa: '精灵透明度',
+                    ar: '动作速率',
+                    fr: '表情速率',
                 },
                 act: {
                     des: '角色精灵',
                     id: '精灵ID',
                     sn: '精灵名称',
                     sh: '精灵色相',
+                    ss: '精灵饱和度',
+                    sb: '精灵亮度',
+                    sa: '精灵透明度',
                 },
                 ass: {
                     des: '辅助精灵',
                     id: '精灵ID',
                     sn: '精灵名称',
                     sh: '精灵色相',
+                    ss: '精灵饱和度',
+                    sb: '精灵亮度',
+                    sa: '精灵透明度',
                 },
             },
             
@@ -241,7 +283,6 @@ const RV = RyView = {
                 t1: '正标题',
                 tl: '时间列表',
                 t2: '副标题',
-                dt: '日期',
                 d1: '时长',
                 tp: '类型',
                 dl: '数据列表',
@@ -270,12 +311,14 @@ const RV = RyView = {
             loc: 'Local',
             net: 'Net',
             
-            out: {
-                des: 'Out',
+            vdo: {
+                des: 'Video',
                 vc: 'Video Coding',
                 vf: 'Video Format',
                 vp: 'Video Proportion',
                 vs: 'Video Size',
+                va: 'Video Author',
+                rs: 'Reset Config',
             },
             
             ft: {
@@ -313,9 +356,12 @@ const RV = RyView = {
                     id: 'Sprite ID',
                     sn: 'Sprite Name',
                     sc: 'Sprite Count',
+                    sr: 'Sprite Radius',
                     sh: 'Sprite Hue',
+                    ss: 'Sprite Saturation',
+                    sb: 'Sprite Brightness',
+                    sa: 'Sprite Alpha',
                     hr: 'Hue Range',
-                    sr: 'Sprite Radius'
                 },
                 mot: {
                     des: 'Motion Sprite',
@@ -323,7 +369,11 @@ const RV = RyView = {
                     sn: 'Sprite Name',
                     sc: 'Sprite Count',
                     sr: 'Sprite Radius',
-                    ss: 'Sprite Speed'
+                    sp: 'Sprite Speed',
+                    sh: 'Sprite Hue',
+                    ss: 'Sprite Saturation',
+                    sb: 'Sprite Brightness',
+                    sa: 'Sprite Alpha',
                 },
                 ado: {
                     des: 'Audio Sprite',
@@ -336,20 +386,29 @@ const RV = RyView = {
                     id: 'Sprite ID',
                     sn: 'Sprite Name',
                     sh: 'Sprite Hue',
-                    sf: 'Sprite Face',
-                    ss: 'Sprite Speed',
+                    ss: 'Sprite Saturation',
+                    sb: 'Sprite Brightness',
+                    sa: 'Sprite Alpha',
+                    ar: 'Action Rate',
+                    fr: 'Face Rate',
                 },
                 act: {
                     des: 'Actor Sprite',
                     id: 'Sprite ID',
                     sn: 'Sprite Name',
                     sh: 'Sprite Hue',
+                    ss: 'Sprite Saturation',
+                    sb: 'Sprite Brightness',
+                    sa: 'Sprite Alpha',
                 },
                 ass: {
                     des: 'Assist Sprite',
                     id: 'Sprite ID',
                     sn: 'Sprite Name',
                     sh: 'Sprite Hue',
+                    ss: 'Sprite Saturation',
+                    sb: 'Sprite Brightness',
+                    sa: 'Sprite Alpha',
                 },
             },
             
@@ -370,7 +429,6 @@ const RV = RyView = {
                 t1: 'Official Title',
                 tl: 'Time List',
                 t2: 'Partial Title',
-                dt: 'Date',
                 d1: 'Duration',
                 tp: 'Type',
                 dl: 'Data List',
@@ -399,12 +457,14 @@ const RV = RyView = {
             loc: 'ローカル',
             net: 'ネット',
             
-            out: {
-                des: '導出',
+            vdo: {
+                des: 'ビデオ',
                 vc: 'ビデオコーディング',
                 vf: 'ビデオフォーマット',
                 vp: 'ビデオの割合',
                 vs: 'ビデオサイズ',
+                va: 'ビデオ作者',
+                rs: '構成のリセット',
             },
             
             ft: {
@@ -442,9 +502,12 @@ const RV = RyView = {
                     id: 'スプライト ID',
                     sn: 'スプライト 名',
                     sc: 'スプライト カウント',
+                    sr: 'スプライト 半径',
                     sh: 'スプライト 色相',
-                    hr: '色相 範囲',
-                    sr: 'スプライト 半径'
+                    ss: 'スプライト 飽和',
+                    sb: 'スプライト 明るさの',
+                    sa: 'スプライト アルファ',
+                    hr: '色相範囲',
                 },
                 mot: {
                     des: 'モーション スプライト',
@@ -452,33 +515,46 @@ const RV = RyView = {
                     sn: 'スプライト 名',
                     sc: 'スプライト カウント',
                     sr: 'スプライト 半径',
-                    ss: 'スプライト スピード'
+                    sp: 'スプライト スピード',
+                    sh: 'スプライト 色相',
+                    ss: 'スプライト 飽和',
+                    sb: 'スプライト 明るさの',
+                    sa: 'スプライト アルファ',
                 },
                 ado: {
                     des: 'オーディオ スプライト',
                     id: 'スプライト ID',
                     sn: 'スプライト 名',
-                    bs: 'ボーダー サイズ'
+                    bs: 'ボーダー サイズ',
                 },
                 mat: {
                     des: 'ゲーム スプライト',
                     id: 'スプライト ID',
                     sn: 'スプライト 名',
                     sh: 'スプライト 色相',
-                    sf: 'スプライト Face',
-                    ss: 'スプライト スピード',
+                    ss: 'スプライト 飽和',
+                    sb: 'スプライト 明るさの',
+                    sa: 'スプライト アルファ',
+                    ar: 'アクション率',
+                    fr: 'フェイスレート',
                 },
                 act: {
                     des: '俳優 スプライト',
                     id: 'スプライト ID',
                     sn: 'スプライト 名',
                     sh: 'スプライト 色相',
+                    ss: 'スプライト 飽和',
+                    sb: 'スプライト 明るさの',
+                    sa: 'スプライト アルファ',
                 },
                 ass: {
                     des: 'アシスト スプライト',
                     id: 'スプライト ID',
                     sn: 'スプライト 名',
                     sh: 'スプライト 色相',
+                    ss: 'スプライト 飽和',
+                    sb: 'スプライト 明るさの',
+                    sa: 'スプライト アルファ',
                 },
             },
             
@@ -499,7 +575,6 @@ const RV = RyView = {
                 t1: '正タイトル',
                 tl: '時間リスト',
                 t2: '副タイトル',
-                dt: '日付',
                 d1: '時長',
                 tp: 'タイプ',
                 dl: 'データリスト',
@@ -528,12 +603,14 @@ const RV = RyView = {
             loc: '현지',
             net: '그물',
             
-            out: {
-                des: '내보내기',
+            vdo: {
+                des: '비디오',
                 vc: '비디오 코딩',
                 vf: '비디오 형식',
                 vp: '비디오 비율',
                 vs: '비디오 크기',
+                va: '비디오 작성자',
+                rs: '구성 재설정',
             },
             
             ft: {
@@ -571,9 +648,12 @@ const RV = RyView = {
                     id: '스프라이트 ID',
                     sn: '스프라이트 이름',
                     sc: '스프라이트 카운트',
+                    sr: '스프라이트 반경',
                     sh: '스프라이트 색조',
+                    ss: '스프라이트 포화',
+                    sb: '스프라이트 밝기',
+                    sa: '스프라이트 알파',
                     hr: '색조 범위',
-                    sr: '스프라이트 반지름'
                 },
                 mot: {
                     des: '거동 스프라이트',
@@ -581,33 +661,46 @@ const RV = RyView = {
                     sn: '스프라이트 이름',
                     sc: '스프라이트 카운트',
                     sr: '스프라이트 반지름',
-                    ss: '스프라이트 속도'
+                    sp: '스프라이트 속도',
+                    sh: '스프라이트 색조',
+                    ss: '스프라이트 포화',
+                    sb: '스프라이트 밝기',
+                    sa: '스프라이트 알파',
                 },
                 ado: {
                     des: '오디오 스프라이트',
                     id: '스프라이트 ID',
                     sn: '스프라이트 이름',
-                    bs: '테두리 크기'
+                    bs: '테두리 크기',
                 },
                 mat: {
                     des: '시합 스프라이트',
                     id: '스프라이트 ID',
                     sn: '스프라이트 이름',
                     sh: '스프라이트 색조',
-                    sf: '스프라이트 얼굴',
-                    ss: '스프라이트 속도',
+                    ss: '스프라이트 포화',
+                    sb: '스프라이트 밝기',
+                    sa: '스프라이트 알파',
+                    ar: '동작 비율',
+                    fr: '얼굴 비율',
                 },
                 act: {
                     des: '배우 스프라이트',
                     id: '스프라이트 ID',
                     sn: '스프라이트 이름',
                     sh: '스프라이트 색조',
+                    ss: '스프라이트 포화',
+                    sb: '스프라이트 밝기',
+                    sa: '스프라이트 알파',
                 },
                 ass: {
                     des: '거들다 스프라이트',
                     id: '스프라이트 ID',
                     sn: '스프라이트 이름',
                     sh: '스프라이트 색조',
+                    ss: '스프라이트 포화',
+                    sb: '스프라이트 밝기',
+                    sa: '스프라이트 알파',
                 },
             },
             
@@ -628,7 +721,6 @@ const RV = RyView = {
                 t1: '표제',
                 tl: '시간목록',
                 t2: '부제',
-                dt: '날짜',
                 d1: '지속시간',
                 tp: '유형',
                 dl: '데이터목록',
@@ -657,12 +749,14 @@ const RV = RyView = {
             loc: 'स्थानीय',
             net: 'इंटरनेट',
             
-            out: {
-                des: 'निर्यात',
+            vdo: {
+                des: 'वीडियो',
                 vc: 'वीडियो कोडिंग',
                 vf: 'वीडियो फार्मेट',
                 vp: 'वीडियो अनुपात',
                 vs: 'वीडियो का आकार',
+                va: 'वीडियो लेखक',
+                rs: 'कॉन्फ़िगरेशन रीसेट करें',
             },
             
             ft: {
@@ -700,9 +794,12 @@ const RV = RyView = {
                     id: 'स्प्राइट ID',
                     sn: 'स्प्राइट नाम',
                     sc: 'स्प्राइट गिनती',
+                    sr: 'स्प्राइट त्रिज्या',
                     sh: 'स्प्राइट ह्यू',
+                    ss: 'स्प्राइट संतृप्ति',
+                    sb: 'स्प्राइट चमक',
+                    sa: 'स्प्राइट अल्फा',
                     hr: 'ह्यू रेंज',
-                    sr: 'स्प्राइट त्रिज्या'
                 },
                 mot: {
                     des: 'प्रस्ताव स्प्राइट',
@@ -710,33 +807,46 @@ const RV = RyView = {
                     sn: 'स्प्राइट नाम',
                     sc: 'स्प्राइट गिनती',
                     sr: 'स्प्राइट त्रिज्या',
-                    ss: 'स्प्राइट स्पीड'
+                    sp: 'स्प्राइट स्पीड',
+                    sh: 'स्प्राइट ह्यू',
+                    ss: 'स्प्राइट संतृप्ति',
+                    sb: 'स्प्राइट चमक',
+                    sa: 'स्प्राइट अल्फा',
                 },
                 ado: {
                     des: 'ऑडियो स्प्राइट',
                     id: 'स्प्राइट ID',
                     sn: 'स्प्राइट नाम',
-                    bs: 'बॉर्डर आकार'
+                    bs: 'बॉर्डर आकार',
                 },
                 mat: {
                     des: 'मैच स्प्राइट',
                     id: 'स्प्राइट ID',
                     sn: 'स्प्राइट नाम',
                     sh: 'स्प्राइट ह्यू',
-                    sf: 'स्प्राइट चेहरा',
-                    ss: 'स्प्राइट स्पीड',
+                    ss: 'स्प्राइट संतृप्ति',
+                    sb: 'स्प्राइट चमक',
+                    sa: 'स्प्राइट अल्फा',
+                    ar: 'कार्रवाई दर',
+                    fr: 'अंकित दर',
                 },
                 act: {
                     des: 'अभिनेता स्प्राइट',
                     id: 'स्प्राइट ID',
                     sn: 'स्प्राइट नाम',
                     sh: 'स्प्राइट ह्यू',
+                    ss: 'स्प्राइट संतृप्ति',
+                    sb: 'स्प्राइट चमक',
+                    sa: 'स्प्राइट अल्फा',
                 },
                 ass: {
                     des: 'असिस्ट स्प्राइट',
                     id: 'स्प्राइट ID',
                     sn: 'स्प्राइट नाम',
                     sh: 'स्प्राइट ह्यू',
+                    ss: 'स्प्राइट संतृप्ति',
+                    sb: 'स्प्राइट चमक',
+                    sa: 'स्प्राइट अल्फा',
                 },
             },
             
@@ -757,7 +867,6 @@ const RV = RyView = {
                 t1: 'सकारात्मक शीर्षक',
                 tl: 'समय सूची',
                 t2: 'उपशीर्षक',
-                dt: 'तारीख',
                 d1: 'समयांतराल',
                 tp: 'के प्रकार',
                 dl: 'डेटा सूची',
@@ -773,10 +882,10 @@ const RV = RyView = {
     },
     
     vl: { // value list
-        'out.vc': 'vp8,h264,webm,mpeg,daala',
-        'out.vf': 'mp4,webm',
-        'out.vp': '4:3,16:9,9:16',
-        'out.vs': '480P,720P,1080P',
+        'vdo.vc': 'vp8,h264,webm,mpeg,daala',
+        'vdo.vf': 'mp4,webm',
+        'vdo.vp': '4:3,16:9,9:16',
+        'vdo.vs': '480P,720P,1080P',
         'ft.otn': 'FONT',
         'ft.ots': '12px,14px,16px,18px,20px,24px,28px,32px,36px,42px,48px,56px,72px',
         'ft.otc': 'HSB',
@@ -805,18 +914,20 @@ const RV = RyView = {
     },
     
     init: (A) => {
-        var a,b,c,d,e,f;
+        var a,b,c,d,e,f,y,z;
         A = A || '';
-        document.body.innerHTML += '<div id="rvTMP" style="display:none;"></div><i id="rvIB" style="display:none"></i><div id="rvEB" class="h_"><div class="rvEbT"><div class="rvEbLab">编辑器(Editor)</div><div class="rvEbX" onclick="RV.hn(this.parentNode.parentNode)">X</div><div class="rvEbOk" onclick="RV.adt(RV.ED.value)">OK</div></div><textarea id="rvED" onmouseover="this.focus()" onfocus="RV.KO.kl=1" onblur="RV.KO.kl=0"></textarea></div><div id="rvHsb" class="h_"><div id="rvHsbCb" onclick="RV.hsb()"><div id="rvHsbH"></div><div id="rvHsbS"></div><div id="rvHsbB"></div><div id="rvHsbCS" class="CS1"><div class="rvHsbCS1"></div><div class="rvHsbCS2"></div></div></div><div id="rvHsbHue" onclick="RV.shue()"></div><div id="rvHsbV"><div class="rvHsbVl"><div id="rvHsbC1"></div><div id="rvHsbC2"></div><div id="rvHsbOk" onclick="RV.hsbok()">OK</div></div><div class="rvHsbVl"><div class="rvHsbN">H</div><div class="rvHsbT"><input id="rvHsbHv" type="text" value="0" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">S</div><div class="rvHsbT"><input id="rvHsbSv" type="text" value="100" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">B</div><div class="rvHsbT"><input id="rvHsbBv" type="text" value="100" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div></div><div class="rvHsbVl"><div class="rvHsbN">H</div><div class="rvHsbT"><input id="rvHslHv" type="text" value="0" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">S</div><div class="rvHsbT"><input id="rvHslSv" type="text" value="100" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">L</div><div class="rvHsbT"><input id="rvHslLv" type="text" value="50" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div></div><div class="rvHsbVl"><div class="rvHsbN">R</div><div class="rvHsbT"><input id="rvRgbRv" type="text" value="255" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">G</div><div class="rvHsbT"><input id="rvRgbGv" type="text" value="0" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">B</div><div class="rvHsbT"><input id="rvRgbBv" type="text" value="0" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div></div><div class="rvHsbVl rvHsbCv"><div id="rvHexCt" class="rvHsbN" onclick="RV.mi(this)" key="HEX1,HEX2,RGB1,RGB2,RGBA,HSB,HSL,HSLA">HEX1</div><div class="rvHsbT"><input id="rvHexCv" type="text" value="#FF0000" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div></div></div></div><div id="rvFwin" class="rvLabB h_"><div class="rvLabT"><div class="rvLab">浮窗</div><div class="rvLabX" onclick="RV.hn(this.parentNode.parentNode)">X</div></div><div class="rvLabC"></div></div>';
+        document.body.innerHTML += '<div id="rvTMP" style="display:none;"></div><i id="rvIB" style="display:none"></i><div id="rvEB" class="h_"><div class="rvEbT"><div class="rvEbLab">编辑器(Editor)</div><div class="rvEbX" onclick="RV.hn(this.parentNode.parentNode)">X</div><div class="rvEbOk" onclick="var a=RV.ED.value;if(a==\'exp1\') RV.ED.value=RV.exp1;else if(a==\'exp2\') RV.ED.value=RV.exp2;else RV.adt(a)">OK</div></div><textarea id="rvED" onmouseover="this.focus()" onfocus="RV.KO.kl=1" onblur="RV.KO.kl=0" placeholder="输入 exp1 或 exp2 提交可使用范例数据预览"></textarea></div><div id="rvHsb" class="h_"><div id="rvHsbCb" onclick="RV.hsb()"><div id="rvHsbH"></div><div id="rvHsbS"></div><div id="rvHsbB"></div><div id="rvHsbCS" class="CS1"><div class="rvHsbCS1"></div><div class="rvHsbCS2"></div></div></div><div id="rvHsbHue" onclick="RV.shue()"></div><div id="rvHsbV"><div class="rvHsbVl"><div id="rvHsbC1"></div><div id="rvHsbC2"></div><div id="rvHsbOk" onclick="RV.hsbok()">OK</div></div><div class="rvHsbVl"><div class="rvHsbN">H</div><div class="rvHsbT"><input id="rvHsbHv" type="text" value="0" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">S</div><div class="rvHsbT"><input id="rvHsbSv" type="text" value="100" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">B</div><div class="rvHsbT"><input id="rvHsbBv" type="text" value="100" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div></div><div class="rvHsbVl"><div class="rvHsbN">H</div><div class="rvHsbT"><input id="rvHslHv" type="text" value="0" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">S</div><div class="rvHsbT"><input id="rvHslSv" type="text" value="100" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">L</div><div class="rvHsbT"><input id="rvHslLv" type="text" value="50" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div></div><div class="rvHsbVl"><div class="rvHsbN">R</div><div class="rvHsbT"><input id="rvRgbRv" type="text" value="255" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">G</div><div class="rvHsbT"><input id="rvRgbGv" type="text" value="0" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div><div class="rvHsbN">B</div><div class="rvHsbT"><input id="rvRgbBv" type="text" value="0" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div></div><div class="rvHsbVl rvHsbCv"><div id="rvHexCt" class="rvHsbN" onclick="RV.mi(this)" key="HEX1,HEX2,RGB1,RGB2,RGBA,HSB,HSL,HSLA">HEX1</div><div class="rvHsbT"><input id="rvHexCv" type="text" value="#FF0000" onmouseover="this.focus()" onchange="RV.hsbcc(this)"/></div></div></div></div><div id="rvFwin" class="rvLabB h_"><div class="rvLabT"><div class="rvLab">浮窗</div><div class="rvLabX" onclick="RV.hn(this.parentNode.parentNode)">X</div></div><div class="rvLabC"></div></div>';
         
         RV.RV = RV.an(A, 'RyView'); // ryview root node
-        RV.RV.innerHTML = '<div id="rvVB"><div id="rvCvsBox"><canvas id="rvCvs"></canvas><canvas id="rvCvsTmp"></canvas></div><video id="rvVdo" onclick="this.play()"></video><div id="rvIB" class="h_"></div></div><div id="rvTB"><div id="rvTB0"></div><div id="rvTB1"></div><div id="rvTB2"></div></div>';
+        RV.RV.innerHTML = '<div id="rvVB"><div id="rvCvsBox"><canvas id="rvCvs"></canvas><canvas id="rvCvsHide"></canvas><canvas id="rvCvsTmp"></canvas></div><video id="rvVdo" onclick="this.play()"></video><div id="rvIB" class="h_"></div></div><div id="rvTB"><div id="rvTB0"></div><div id="rvTB1"></div><div id="rvTB2"></div></div>';
         
         RV.CB = RV.gn('rvCvsBox');
-        RV.CV = RV.gn('rvCvs');
-        RV.CTX = RV.CV.getContext('2d');
+        RV.CVX = RV.gn('rvCvs');
+        RV.CTX = RV.CVX.getContext('2d');
+        RV.CVH = RV.gn('rvCvsHide');
+        RV.CTH = RV.CVH.getContext('2d');
         RV.CVT = RV.gn('rvCvsTmp');
-        RV.CTMP = RV.CVT.getContext('2d');
+        RV.CTT = RV.CVT.getContext('2d');
         RV.VDO = RV.gn('rvVdo');
         RV.TMP = RV.gn('rvTMP');
         RV.IB = RV.gn('rvIB');
@@ -830,9 +941,11 @@ const RV = RyView = {
         requestAnimationFrame = requestAnimationFrame || webkitRequestAnimationFrame || mozRequestAnimationFrame || msRequestAnimationFrame;
         cancelAnimationFrame = cancelAnimationFrame || webkitCancelAnimationFrame || mozCancelAnimationFrame || msCancelAnimationFrame;
         
+        RV.ac('RVCSS', RV.e36(RV.css, 2));
         RV.ii();
         RV.nm();
         RV.ado();
+        RV.adt();
         RV.log('init');
         
         // test
@@ -846,6 +959,10 @@ const RV = RyView = {
         // a = JSON.parse(a);
         a = a || '{}';
         a = eval('('+a+')');
+        if(a.vdo && a.vdo.rs == 1) {
+            RV.ls('RVINI', 0, -1);
+            a = 0;
+        }
         if(!a) {
             RV.ini2 = RV.ini;
             return;
@@ -857,10 +974,10 @@ const RV = RyView = {
         if(!a.ttsv) a.ttsv = RV.ini.ttsv;
         if(!a.dmn) a.dmn = RV.ini.dmn;
         
-        b = RV.ini.out;
-        if(!a.out) a.out = {};
+        b = RV.ini.vdo;
+        if(!a.vdo) a.vdo = {};
         for(z in b) {
-            if(!a.out[z]) a.out[z] = b[z];
+            if(!a.vdo[z]) a.vdo[z] = b[z];
         }
         
         b = RV.ini.ft;
@@ -911,14 +1028,14 @@ const RV = RyView = {
             if(typeof a[z] != 'object') continue;
             e = a[z].des || a[z][0].des || '';
             if(!e) continue;
-            if(z == 'out') f = ' s_';
+            if(z == 'vdo') f = ' s_';
             else f = '';
             d = '<div class="rvBtn1'+f+'" onclick="RV.sel(this);RV.si(\''+z+'\');RV.SMN=\''+z+'\'">'+e+'</div>';
             c.push(d);
         }
         c = c.join('')+'<b class="cl"></b>';
         RV.gn('rvTB1').innerHTML = c;
-        RV.si('out');
+        RV.si('vdo');
         RV.rw();
     },
     
@@ -1026,8 +1143,8 @@ const RV = RyView = {
             c.push('<div class="rvLabB"><div class="rvLabT"><div class="rvLab">#'+z+'</div><div class="rvLabX" onclick="RV.dn(this.parentNode.parentNode);delete RV.adoL.'+z+';RV.ana=null">X</div></div><div class="rvLabC">');
             for(y in b) {
                 if(y == 'des') continue;
-                e = 'RV.adoL.'+z+'.'+y;
-                d = '<div class="rvBtn2" ondblclick="RV.mi(this.lastChild)" title="'+a[z][y]+'">'+b[y]+':<input class="rvVal" type="text" value="'+a[z][y]+'" key="'+e+'"/></div>';
+                e = 'RV.adoL.'+z+'.'+y+'=this.value';
+                d = '<div class="rvBtn2" ondblclick="RV.mi(this.lastChild)" title="'+a[z][y]+'">'+b[y]+':<input class="rvVal" type="text" value="'+a[z][y]+'" onchange="'+e+'"/></div>';
                 c.push(d);
             }
             c.push('</div></div>');
@@ -1043,7 +1160,7 @@ const RV = RyView = {
         var a,b,c,d,e,f,l,i,y,z;
         l = RV.ini2.lg;
         a = RV.adtL;
-        b = RV.lg[l].ad;CL(b);
+        b = RV.lg[l].ad;
         if(!a) {
             c = '<div class="rvBtn" onclick="RV.sn(RV.EB)">'+(RV.lg[l].inp||'输入(Input)')+'</div><div class="rvBtn">'+(RV.lg[l].loc||'本地(Local)')+'<input type="file" class="rvFile" onclick="RV.up(this)" multiple="1"/></div><div class="rvBtn" onclick="RV.ol(\'http://rv.eefaa.cn/?dnet\')">'+(RV.lg[l].net||'网络(Net)')+'</div><b class="cl"></b>';
             RV.gn('rvTB2').innerHTML = c;
@@ -1051,27 +1168,29 @@ const RV = RyView = {
         }
         
         c = [];
-        d = '<div class="rvBtn2" ondblclick="RV.mi(this.lastChild)">'+(b.t1||'正标题')+':<input class="rvVal" type="text" value="'+(a.t1||'')+'" key="RV.adtL.t1"/></div>';
+        d = '<div class="rvBtn2" ondblclick="RV.mi(this.lastChild)">'+(b.t1||'正标题')+':<input class="rvVal" type="text" value="'+(a.t1||'')+'" onchange="RV.adtL.t1=this.value"/></div>';
         c.push(d);
         
         for(z=0; z<a.tl.length; z++) {
-            if(z == 'des' || z == 'tt') continue;
-            c.push('<div class="rvLabB"><div class="rvLabT"><div class="rvLab">#t'+z+'</div><div class="rvLabX" onclick="RV.dn(this.parentNode.parentNode);delete RV.adtL.tl['+z+']">X</div></div><div class="rvLabC">');
+            if(a.tl == false) continue;
+            a.tl[z] = a.tl[z] || {};
+            c.push('<div class="rvLabB"><div class="rvLabT"><div class="rvLab">#t'+z+'</div><div class="rvLabX" onclick="RV.dn(this.parentNode.parentNode);delete RV.adtL.tl['+z+']" title="删除时间节点(Delete time node)">X</div><div class="rvLabAdd" onclick="RV.adt(1)" title="添加时间节点(Add time node)">+</div></div><div class="rvLabC">');
             
-            f = ['t2', 'dt', 'd1', 'tp'];
+            f = ['t2', 'd1', 'tp'];
             for(i=0; i<f.length; i++) {
-                e = 'RV.adtL.tl['+z+'].'+f[i];
-                d = '<div class="rvBtn2" ondblclick="RV.mi(this.lastChild)">'+(b[f[i]]||'')+':<input class="rvVal" type="text" value="'+(a[z][f[i]]||'')+'" key="'+e+'"/></div>';
+                e = 'RV.adtL.tl['+z+'].'+f[i]+'=this.value';
+                d = '<div class="rvBtn2" ondblclick="RV.mi(this.lastChild)">'+(b[f[i]]||'')+':<input class="rvVal" type="text" value="'+(a.tl[z][f[i]]||'')+'" onchange="'+e+'"/></div>';
                 c.push(d);
             }
             
-            for(y=0; y<a[z].dl.length; y++) {
-                c.push('<div class="rvLabB"><div class="rvLabT"><div class="rvLab">#d'+y+'</div><div class="rvLabX" onclick="RV.dn(this.parentNode.parentNode);delete RV.adtL.tl['+z+'].dl['+y+']">X</div></div><div class="rvLabC">');
+            for(y=0; y<a.tl[z].dl.length; y++) {
+                if(a.tl[z].dl == false) continue;
+                c.push('<div class="rvLabB"><div class="rvLabT"><div class="rvLab rvLabDN">#d'+y+'</div><div class="rvLabX" onclick="RV.dn(this.parentNode.parentNode);delete RV.adtL.tl['+z+'].dl['+y+']" title="删除数据节点(Delete data node)">X</div><div class="rvLabAdd" onclick="RV.selAD=RV.adtL.tl['+z+'].dl;RV.adt(2)" title="添加数据节点(Add data node)">+</div></div><div class="rvLabC">');
                 
                 f = ['nm', 'vl', 'pi', 'fa', 'ac', 'wd', 'd2'];
                 for(i=0; i<f.length; i++) {
-                    e = 'RV.adtL.tl['+z+'].dl['+y+'].'+f[i];
-                    d = '<div class="rvBtn2" ondblclick="RV.mi(this.lastChild)">'+(b[f[i]]||'')+':<input class="rvVal" type="text" value="'+(a[z].dl[y][f[i]]||'')+'" key="'+e+'"/></div>';
+                    e = 'RV.adtL.tl['+z+'].dl['+y+'].'+f[i]+'=this.value';
+                    d = '<div class="rvBtn2" ondblclick="RV.mi(this.lastChild)">'+(b[f[i]]||'')+':<input class="rvVal" type="text" value="'+(a.tl[z].dl[y][f[i]]||'')+'" onchange="'+e+'"/></div>';
                     c.push(d);
                 }
                 
@@ -1085,6 +1204,7 @@ const RV = RyView = {
         
         c = c.join('')+f+'<b class="cl"></b>';
         RV.gn('rvTB2').innerHTML = c;
+        RV.selAD = null;
     },
     
     sys: (A) => { // system resource
@@ -1105,17 +1225,16 @@ const RV = RyView = {
     },
     
     pdt: (A) => { // parse data
-        var a,b,c,d,o,t,z,s1,s2;
+        var a,b,c,d,l,o,t,z,s1,s2;
         A = (A||'').trim();
         if(!A) return;
-        s1 = ',t1,t2,dt,d1,tp,';
+        s1 = ',t1,t2,d1,tp,';
         s2 = ',nm,vl,pi,fa,ac,wd,d2,';
         RV.adtL = RV.adtL || {};
         RV.adtL.tl = RV.adtL.tl || [];
         a = A.split(/\r\n|\r|\n/);
         
         for(z=0; z<a.length; z++) {
-            t = t || {};
             b = b || {};
             c = (a[z]||'').trim();
             if(!c) continue;
@@ -1123,24 +1242,29 @@ const RV = RyView = {
             e = c.substr(2).trim();
             
             if(s1.indexOf(','+d+',') != -1) {
-                o = RV.adtL.tl[(RV.adtL.tl.length||1)-1];
+                o = RV.adtL.tl;
+                l = (RV.adtL.tl.length||1) - 1;
             } else if(s2.indexOf(','+d+',') != -1) {
-                o = RV.selAD.dl || RV.adtL.tl[(RV.adtL.tl.length||1)-1].dl;
+                RV.adtL.tl[(RV.adtL.tl.length||1)-1].dl = RV.adtL.tl[(RV.adtL.tl.length||1)-1].dl || [];
+                o = RV.selAD || RV.adtL.tl[(RV.adtL.tl.length||1)-1].dl;
+                l = (o.length||1) - 1;
             }
             else continue;
+            o[l] = o[l] || {};
             
             if(d == 't1') {
                 RV.adtL.t1 = e || 正标题;
                 continue;
             }
             
-            t[d] = (t[d]||0) + 1;
-            if(t[d] > 1) {
-                t = {};
+            b[d] = (o[l][d]==undefined?0:1) + 1;
+            if(b[d] > 1) {
                 b = {};
+                o.push({});
+                l = (o.length||1) - 1;
             }
             
-            o[b[d]] = e;
+            o[l][d] = e;
         }
     },
     
@@ -1148,10 +1272,10 @@ const RV = RyView = {
         var a,b,c,d,z;
         if(!A) return;
         RV.MDF = A;
-        a = {simsun:'宋体(SimSun):ABCDabcd1234', yahei:'雅黑(YaHei):ABCDabcd1234', kuaile:'快乐(KuaiLe):ABCDabcd1234', kuhei:'酷黑(KuHei):ABCDabcd1234', pangmen:'庞门(PangMen):ABCDabcd1234', xiaobai:'小白(XiaoBai):ABCDabcd1234', zhenyan:'真言(ZhenYan):ABCDabcd1234'};
+        a = {SimSun:'宋体(SimSun):ABCDabcd1234', 'Microsoft YaHei':'雅黑(YaHei):ABCDabcd1234', kuaile:'快乐(KuaiLe):ABCDabcd1234', kuhei:'酷黑(KuHei):ABCDabcd1234', pangmen:'庞门(PangMen):ABCDabcd1234', xiaobai:'小白(XiaoBai):ABCDabcd1234', zhenyan:'真言(ZhenYan):ABCDabcd1234'};
         b = [];
         for(z in a) {
-            b.push('<div class="rvFont" style="font-family:'+z+';" onclick="RV.MDF.lastChild.value=\''+z+'\';">'+a[z]+'</div>');
+            b.push('<div class="rvFont" style="font-family:'+z+';" onclick="RV.MDF.value=\''+z+'\';">'+a[z]+'</div>');
         }
         b = b.join('')+'<b class="cl"></b>';
         RV.msg('字体(Font)', b, 1);
@@ -1457,6 +1581,12 @@ const RV = RyView = {
             g = parseInt(s.substr(2, 2), 16);
             b = parseInt(s.substr(4, 2), 16);
         }
+        if(r < 0) r = 0;
+        if(r > 255) r = 255;
+        if(g < 0) g = 0;
+        if(g > 255) g = 255;
+        if(b < 0) b = 0;
+        if(b > 255) b = 255;
         return {r:r, g:g, b:b, rgb1:'rgb('+r+', '+g+', '+b+')', rgb2:'R:'+r+', G:'+g+', B:'+b, rgba:'rgba('+r+', '+g+', '+b+', 1)'};
     },
     
@@ -1469,7 +1599,17 @@ const RV = RyView = {
             R = parseInt(s[0]) || 0;
             G = parseInt(s[1]) || 0;
             B = parseInt(s[2]) || 0;
+        } else {
+            R = parseInt(R) || 0;
+            G = parseInt(G) || 0;
+            B = parseInt(B) || 0;
         }
+        if(R < 0) R = 0;
+        if(R > 255) R = 255;
+        if(G < 0) G = 0;
+        if(G > 255) G = 255;
+        if(B < 0) B = 0;
+        if(B > 255) B = 255;
         r = '0' + R.toString(16);
         g = '0' + G.toString(16);
         b = '0' + B.toString(16);
@@ -1479,6 +1619,15 @@ const RV = RyView = {
     
     rgb2hsb: (R, G, B) => { // rgb to hsb
         var r,g,b,h,s,v,f,l,m,n;
+        R = parseInt(R) || 0;
+        G = parseInt(G) || 0;
+        B = parseInt(B) || 0;
+        if(R < 0) R = 0;
+        if(R > 255) R = 255;
+        if(G < 0) G = 0;
+        if(G > 255) G = 255;
+        if(B < 0) B = 0;
+        if(B > 255) B = 255;
         r = R / 255;
         g = G / 255;
         b = B / 255;
@@ -1515,6 +1664,15 @@ const RV = RyView = {
     
     hsb2rgb: (H, S, B) => { // hsb to rgb
         var r,g,b,h,s,v,f,p,q,t;
+        H = parseInt(H) || 0;
+        S = parseInt(S) || 0;
+        B = parseInt(B) || 0;
+        if(H < 0) H = 0;
+        if(H > 360) H = 360;
+        if(S < 0) S = 0;
+        if(S > 100) S = 100;
+        if(B < 0) B = 0;
+        if(B > 100) B = 100;
         s = S / 100;
         v = B / 100;
         h = Math.floor(H / 60) % 6;
@@ -1564,6 +1722,15 @@ const RV = RyView = {
     
     rgb2hsl: (R, G, B) => { // rgb to hsl
         var r,g,b,h,s,l,f,m,n;
+        R = parseInt(R) || 0;
+        G = parseInt(G) || 0;
+        B = parseInt(B) || 0;
+        if(R < 0) R = 0;
+        if(R > 255) R = 255;
+        if(G < 0) G = 0;
+        if(G > 255) G = 255;
+        if(B < 0) B = 0;
+        if(B > 255) B = 255;
         r = R / 255;
         g = G / 255;
         b = B / 255;
@@ -1596,6 +1763,15 @@ const RV = RyView = {
     
     hsl2rgb: (H, S, L) => { // hsl to rgb
         var h,s,l,p,q,c,i,r,g,b,rgb;
+        H = parseInt(H) || 0;
+        S = parseInt(S) || 0;
+        L = parseInt(L) || 0;
+        if(H < 0) H = 0;
+        if(H > 360) H = 360;
+        if(S < 0) S = 0;
+        if(S > 100) S = 100;
+        if(L < 0) L = 0;
+        if(L > 100) L = 100;
         h = H / 360;
         s = S / 100;
         l = L / 100;
@@ -1644,8 +1820,8 @@ const RV = RyView = {
         return A;
     },
     
-    hsla: (A, B, C, D) => { // return hsla color
-        return 'hsla(' +A+ ',' +B+ '%,' +C+ '%,' +D+ ')';
+    hsla: (H, S, L, A) => { // return hsla color
+        return 'hsla(' +H+ ',' +S+ '%,' +L+ '%,' +A+ ')';
     },
     
     tts: (A, B) => { // text to speec
@@ -1682,8 +1858,8 @@ const RV = RyView = {
         w = document.body.offsetWidth;
         h = document.body.offsetHeight;
         
-        f = RV.ini2.out.vp;
-        g = parseInt(RV.ini2.out.vs);
+        f = RV.ini2.vdo.vp;
+        g = parseInt(RV.ini2.vdo.vs);
         if(f == '4:3'){
             if(g == 1080) {
                 RV.cw = 1440;
@@ -1753,10 +1929,10 @@ const RV = RyView = {
         RV.CB.style.height = h2 + 'px';
         RV.VDO.style.width = w2 + 'px';
         RV.VDO.style.height = h2 + 'px';
-        RV.CV.width = RV.CVT.width = RV.cw;
-        RV.CV.height = RV.CVT.height = RV.ch;
-        RV.CV.style.width = RV.CVT.style.width = w2 + 'px';
-        RV.CV.style.height = RV.CVT.style.height = h2 + 'px';
+        RV.CVX.width = RV.CVH.width = RV.CVT.width = RV.cw;
+        RV.CVX.height = RV.CVH.height = RV.CVT.height = RV.ch;
+        RV.CVX.style.width = RV.CVH.style.width = RV.CVT.style.width = w2 + 'px';
+        RV.CVX.style.height = RV.CVH.style.height = RV.CVT.style.height = h2 + 'px';
     },
     
     gn: (A) => { // get node
@@ -2015,6 +2191,40 @@ const RV = RyView = {
         }
     },
     
+    nf: (A, B, C) => { // number format
+        var a,b,c;
+        if(B == 2) {
+            A = (A+'').toLowerCase();
+            if(A.indexOf('e') != -1 || A.indexOf('亿') != -1) A = (parseFloat(A)||0) * 100000000;
+            else if(A.indexOf('kw') != -1 || A.indexOf('千万') != -1) A = (parseFloat(A)||0) * 10000000;
+            else if(A.indexOf('m') != -1 || A.indexOf('百万') != -1) A = (parseFloat(A)||0) * 1000000;
+            else if(A.indexOf('w') != -1 || A.indexOf('万') != -1) A = (parseFloat(A)||0) * 10000;
+            else A = parseFloat(A) || 0;
+            return A;
+        }
+        
+        A = parseFloat(A) || 0;
+        C = C || 2;
+        if (!A) return 0;
+        b = {1:10, 2:100, 3:1000, 4:10000, 5:100000};
+        c = b[C] || 100;
+        
+        if (A > 100000000) {
+            a = Math.ceil(A / 100000000 * c) / c;
+            a = a + 'e';
+        } else if (A > 10000000) {
+            a = Math.ceil(A / 10000000 * c) / c;
+            a = a + 'kw';
+        } else if (A > 10000000) {
+            a = Math.ceil(A / 1000000 * c) / c;
+            a = a + 'm';
+        } else if (A > 10000) {
+            a = Math.ceil(A / 10000 * c) / c;
+            a = a + 'w';
+        } else a = A;
+        return a;
+    },
+    
     rr: (A) => { // rand range
         var a,b,c,d,e,f;
         A += '';
@@ -2245,89 +2455,621 @@ const RV = RyView = {
         a.send();
     },
     
-    ps: (A) => { // play sprite
-        var a,b,c,d,o;
-        if(!RV.PS) return;
-        a = RV.ini2;
-        if(!RV.bgs && RV.slib[a.sr.bg.id]) {
+    face: (A, B, C) => { // face
+        var a,b,c,d,e,f,z;
+        a = {0:'xi', 1:'nu', 2:'ai', 3:'le', 4:'ku', 5:'co', 6:'gl', 7:'xy', 8:'bs', 9:'cx', 10:'kj', 11:'je', 12:'wy'};
+        if(typeof A == 'number') A = a[A] || 'xi';
+        else A = A || 'xi';
+        B = B || 0;
+        C = C || 0;
+        c = RV.CTT;
+        c.clearRect(0, 0, RV.cw, RV.ch);
+        c.globalCompositeOperation = 'source-over';
+        c.lineCap = 'round';
+        c.lineJoin = 'round';
+        c.lineWidth = 2;
+        c.fillStyle = '#fff';
+        c.strokeStyle = '#000';
+        
+        if(A == 'xi') { // 喜
+            c.beginPath();
+            c.moveTo(7, 15);
+            c.bezierCurveTo(10, 13, 17, 13, 20, 15);
+            c.bezierCurveTo(24, 16, 23, 21, 20, 20);
+            c.bezierCurveTo(22, 18, 5, 18, 7, 20);
+            c.bezierCurveTo(3, 21, 4, 16, 7, 15);
+            
+            c.moveTo(30, 15);
+            c.bezierCurveTo(33, 13, 40, 13, 43, 15);
+            c.bezierCurveTo(47, 16, 46, 21, 43, 20);
+            c.bezierCurveTo(45, 18, 28, 18, 30, 20);
+            c.bezierCurveTo(26, 21, 27, 16, 30, 15);
+            
+            c.moveTo(15, 32);
+            c.bezierCurveTo(18, 37, 32, 37, 35, 32);
+            c.bezierCurveTo(32, 42, 18, 42, 15, 32);
+            c.fill();
+            c.stroke();
+            
+            c.fillStyle = '#000';
+            c.beginPath();
+            c.arc(11, 16, 3, 0, RV.pi2);
+            c.arc(34, 16, 3, 0, RV.pi2);
+            c.fill();
+            
+        } else if(A == 'nu') { // 怒
+            c.beginPath();
+            c.moveTo(5, 13);
+            c.bezierCurveTo(5, 13, 22, 18, 22, 18);
+            c.bezierCurveTo(18, 28, 5, 18, 5, 13);
+            
+            c.moveTo(28, 18);
+            c.bezierCurveTo(28, 18, 45, 13, 45, 13);
+            c.bezierCurveTo(45, 18, 32, 28, 28, 18);
+            
+            c.moveTo(15, 32);
+            c.lineTo(35, 32);
+            c.lineTo(35, 36);
+            c.lineTo(15, 36);
+            c.lineTo(15, 32);
+            c.fill();
+            c.stroke();
+            
+        } else if(A == 'ai') { // 哀
+            c.beginPath();
+            c.moveTo(5, 20);
+            c.bezierCurveTo(5, 20, 20, 15, 20, 15);
+            c.bezierCurveTo(20, 20, 5, 25, 5, 20);
+            
+            c.moveTo(30, 15);
+            c.bezierCurveTo(30, 15, 45, 20, 45, 20);
+            c.bezierCurveTo(45, 25, 30, 20, 30, 15);
+            
+            c.moveTo(15, 38);
+            c.bezierCurveTo(15, 31, 35, 31, 35, 38);
+            c.bezierCurveTo(35, 38, 35, 38, 15, 38);
+            c.fill();
+            c.stroke();
+            
+        } else if(A == 'le') { // 乐
+            c.beginPath();
+            c.moveTo(7, 15);
+            c.bezierCurveTo(10, 13, 17, 13, 20, 15);
+            c.bezierCurveTo(24, 16, 23, 21, 20, 20);
+            c.bezierCurveTo(22, 18, 5, 18, 7, 20);
+            c.bezierCurveTo(3, 21, 4, 16, 7, 15);
+            
+            c.moveTo(30, 15);
+            c.bezierCurveTo(33, 13, 40, 13, 43, 15);
+            c.bezierCurveTo(47, 16, 46, 21, 43, 20);
+            c.bezierCurveTo(45, 18, 28, 18, 30, 20);
+            c.bezierCurveTo(26, 21, 27, 16, 30, 15);
+            
+            c.moveTo(15, 32);
+            c.bezierCurveTo(15, 32, 35, 32, 35, 32);
+            c.bezierCurveTo(35, 45, 15, 45, 15, 32);
+            c.fill();
+            c.stroke();
+            
+            c.fillStyle = '#000';
+            c.beginPath();
+            c.arc(13, 16, 3, 0, RV.pi2);
+            c.arc(36, 16, 3, 0, RV.pi2);
+            c.fill();
+            
+        } else if(A == 'ku') { // 哭
+            c.beginPath();
+            c.moveTo(5, 12);
+            c.lineTo(18, 12)
+            
+            c.moveTo(32, 12);
+            c.lineTo(45, 12);
+            c.stroke();
+            
+            c.beginPath();
+            c.moveTo(7, 14);
+            c.bezierCurveTo(7, 14, 16, 14, 16, 14);
+            c.bezierCurveTo(12, 21, 20, 20, 16, 27);
+            c.bezierCurveTo(12, 34, 20, 35, 16, 42);
+            c.bezierCurveTo(18, 42, 7, 42, 7, 42);
+            c.bezierCurveTo(11, 35, 3, 34, 7, 27);
+            c.bezierCurveTo(11, 20, 3, 21, 7, 14);
+            
+            c.moveTo(7, 14);
+            c.bezierCurveTo(34, 14, 43, 14, 43, 14);
+            c.bezierCurveTo(39, 21, 47, 20, 43, 27);
+            c.bezierCurveTo(39, 34, 47, 35, 43, 42);
+            c.bezierCurveTo(45, 42, 34, 42, 34, 42);
+            c.bezierCurveTo(38, 35, 30, 34, 34, 27);
+            c.bezierCurveTo(38, 20, 30, 21, 34, 14);
+            c.fill();
+            
+            c.beginPath();
+            c.moveTo(20, 35);
+            c.bezierCurveTo(20, 30, 30, 30, 30, 35);
+            c.stroke();
+            
+        } else if(A == 'co') { // 愁
+            c.beginPath();
+            c.moveTo(5, 20);
+            c.bezierCurveTo(5, 20, 20, 10, 20, 10);
+            c.bezierCurveTo(20, 18, 13, 20, 5, 20);
+            
+            c.moveTo(30, 10);
+            c.bezierCurveTo(30, 10, 45, 20, 45, 20);
+            c.bezierCurveTo(37, 20, 30, 18, 30, 10);
+            
+            c.moveTo(15, 35);
+            c.bezierCurveTo(15, 25, 35, 25, 35, 35);
+            c.bezierCurveTo(35, 30, 15, 30, 15, 35);
+            c.fill();
+            c.stroke();
+            
+        } else if(A == 'gl') { // 鬼脸
+            c.beginPath();
+            c.arc(13.5, 15, 6, 0, RV.pi2);
+            c.fill();
+            c.stroke();
+            
+            c.fillStyle = '#000';
+            c.beginPath();
+            c.arc(10, 15, 4, 0, RV.pi2);
+            c.fill();
+            
+            c.beginPath();
+            c.moveTo(45, 20);
+            c.lineTo(30, 20);
+            c.lineTo(45, 12);
+            c.stroke();
+            
+            c.fillStyle = '#faa';
+            c.beginPath();
+            c.moveTo(15, 30);
+            c.lineTo(35, 30);
+            c.moveTo(18, 30);
+            c.bezierCurveTo(15, 30, 35, 30, 32, 30);
+            c.bezierCurveTo(32, 45, 18, 45, 18, 30);
+            c.fill();
+            c.stroke();
+            
+        } else if(A == 'xy') { // 小样
+            c.beginPath();
+            c.moveTo(5, 15);
+            c.bezierCurveTo(5, 15, 22, 15, 22, 15);
+            c.bezierCurveTo(22, 25, 5, 20, 5, 15);
+            
+            c.moveTo(28, 15);
+            c.bezierCurveTo(28, 15, 45, 15, 45, 15);
+            c.bezierCurveTo(45, 20, 28, 25, 28, 15);
+            
+            c.moveTo(18, 35);
+            c.bezierCurveTo(18, 35, 32, 32, 32, 32);
+            c.bezierCurveTo(32, 37, 18, 40, 18, 35);
+            c.fill();
+            c.stroke();
+            
+            c.globalCompositeOperation = 'source-atop';
+            c.fillStyle = '#000';
+            c.beginPath();
+            c.arc(17, 17, 4, 0, RV.pi2);
+            c.arc(40, 17, 4, 0, RV.pi2);
+            c.fill();
+            
+        } else if(A == 'bs') { // 鄙视
+            c.beginPath();
+            c.moveTo(5, 17);
+            c.lineTo(20, 13);
+            
+            c.moveTo(30, 17);
+            c.lineTo(45, 13);
+            c.stroke();
+            
+            c.beginPath();
+            c.moveTo(15, 35);
+            c.lineTo(32, 30);
+            c.lineTo(35, 35);
+            c.lineTo(15, 35);
+            c.fill();
+            c.stroke();
+            
+            c.fillStyle = '#000';
+            c.beginPath();
+            c.arc(17, 16, 3, 0, RV.pi2);
+            c.arc(42, 16, 3, 0, RV.pi2);
+            c.fill();
+            
+        } else if(A == 'cx') { // 嘲笑
+            c.beginPath();
+            c.moveTo(5, 15);
+            c.bezierCurveTo(5, 10, 20, 10, 20, 15);
+            c.bezierCurveTo(20, 17, 18, 18, 18, 18);
+            c.bezierCurveTo(18, 16, 7, 16, 7, 18);
+            c.bezierCurveTo(7, 18, 5, 17, 5, 15);
+            
+            c.moveTo(30, 15);
+            c.bezierCurveTo(30, 10, 45, 10, 45, 15);
+            c.bezierCurveTo(45, 17, 43, 18, 43, 18);
+            c.bezierCurveTo(43, 16, 32, 16, 32, 18);
+            c.bezierCurveTo(32, 18, 30, 17, 30, 15);
+            
+            c.moveTo(17, 28);
+            c.bezierCurveTo(17, 28, 33, 28, 33, 28);
+            c.bezierCurveTo(33, 48, 17, 48, 17, 28);
+            c.fill();
+            c.stroke();
+            
+            c.fillStyle = '#000';
+            c.beginPath();
+            c.arc(12, 14, 2, 0, RV.pi2);
+            c.arc(37, 14, 2, 0, RV.pi2);
+            c.fill();
+            
+        } else if(A == 'kj') { // 恐惧
+            c.save();
+            c.rotate(25*RV.pi1/180);
+            c.scale(1, 1.2);
+            c.beginPath();
+            c.arc(19, 6, 7, 0, RV.pi2);
+            c.fill();
+            c.stroke();
+            c.restore();
+            
+            c.save();
+            c.rotate(-25*RV.pi1/180);
+            c.scale(1, 1.2);
+            c.beginPath();
+            c.arc(27, 24, 7, 0, RV.pi2);
+            c.fill();
+            c.stroke();
+            c.restore();
+            
+            c.beginPath();
+            c.moveTo(20, 27);
+            c.lineTo(30, 27);
+            c.lineTo(30, 43);
+            c.lineTo(20, 43);
+            c.lineTo(20, 27);
+            c.fill();
+            c.stroke();
+            
+        } else if(A == 'je') { // 惊愕
+            c.save();
+            c.scale(1, 1.2);
+            c.beginPath();
+            c.arc(13.5, 13, 6, 0, RV.pi2);
+            c.fill();
+            c.stroke();
+            c.restore();
+            
+            c.save();
+            c.scale(1, 1.2);
+            c.beginPath();
+            c.arc(36.5, 13, 6, 0, RV.pi2);
+            c.fill();
+            c.stroke();
+            c.restore();
+            
+            c.beginPath();
+            c.moveTo(15, 35);
+            c.bezierCurveTo(15, 25, 35, 25, 35, 35);
+            c.bezierCurveTo(35, 35, 36, 38, 32, 38);
+            c.bezierCurveTo(32, 36, 18, 36, 18, 38);
+            c.bezierCurveTo(14, 38, 15, 35, 15, 35);
+            c.fill();
+            c.stroke();
+            
+        } else if(A == 'wy') { // 无语
+            c.beginPath();
+            c.moveTo(5, 15);
+            c.bezierCurveTo(5, 12, 20, 12, 20, 15);
+            c.bezierCurveTo(21, 20, 4, 20, 5, 15);
+            
+            c.moveTo(30, 15);
+            c.bezierCurveTo(30, 12, 45, 12, 45, 15);
+            c.bezierCurveTo(46, 20, 29, 20, 30, 15);
+            
+            c.moveTo(20, 35);
+            c.lineTo(30, 35);
+            c.fill();
+            c.stroke();
+            
+            c.fillStyle = '#aff';
+            c.beginPath();
+            c.moveTo(40, 25);
+            c.bezierCurveTo(50, 45, 30, 45, 40, 25);
+            c.fill();
+            c.stroke();
+            
+        } else {
+            c.beginPath();
+            c.moveTo(5, 15);
+            c.lineTo(20, 15);
+            c.stroke();
+            
+            c.beginPath();
+            c.moveTo(30, 15);
+            c.lineTo(45, 15);
+            c.stroke();
+            
+            c.beginPath();
+            c.moveTo(18, 35);
+            c.lineTo(32, 35);
+            c.stroke();
+            
+        }
+        
+        RV.CTX.drawImage(RV.CVT, B, C);
+    },
+    
+    txt: (A, B, C, D, E, F, G, H) => { // draw text
+        var a,b,c,d,e,f,g,h,z;
+        if(!A && A!=0) return;
+        B = B || 'wd';
+        a = RV.ini2.ft;
+        
+        if(B == 't1') {
+            b = A.split(/[,.\;\!\?，。；！？]/);
+            c = a.otn || 'Microsoft YaHei';
+            d = parseInt(a.ots) || 72;
+            e = a.otc || '#ff0';
+            f = parseInt(a.otbs) || 5;
+            g = a.otbc || '#f00';
+            for(z=0; z<b.length; z++) {
+                RV.CTX.textAlign = 'start';
+                RV.CTX.lineWidth = f;
+                RV.CTX.font = d+'px '+c;
+                RV.CTX.strokeStyle = g;
+                RV.CTX.strokeText(b[z], 50, (50+d)*(z+1));
+                RV.CTX.fillStyle = e;
+                RV.CTX.fillText(b[z], 50, (50+d)*(z+1));
+            }
+            
+        } else if(B == 't2') {
+            c = a.ptn || 'Microsoft YaHei';
+            d = parseInt(a.pts) || 48;
+            e = a.ptc || '#000';
+            f = parseInt(a.ptbs) || 2;
+            g = a.ptbc || '#fff';
+            RV.CTX.textAlign = 'right';
+            RV.CTX.lineWidth = f;
+            RV.CTX.font = d+'px '+c;
+            RV.CTX.strokeStyle = g;
+            RV.CTX.strokeText(A, RV.cw-50, RV.ch-50);
+            RV.CTX.fillStyle = e;
+            RV.CTX.fillText(A, RV.cw-50, RV.ch-50);
+            
+        } else if(B == 'wd') {
+            
+            
+        } else if(B == 'rf') {
+            b = E || 20;
+            c =  F || '#000';
+            d = G || 'left';
+            e = H || 'Simsun';
+            RV.CTX.textAlign = d;
+            RV.CTX.font = b+'px '+e;
+            RV.CTX.fillStyle = c;
+            RV.CTX.fillText(A, C, D);
+        }
+    },
+    
+    scp: (A) => { // show copyright
+        var a,b,c,d,x,y,z;
+        a = ['视频作者(Video Author): '+(RV.ini2.vdo.va||'未知作者(Unknown Author)'), '视频工具(Video Tools): 锐视(RyView)'];
+        b = RV.adoL || {};
+        d = 0;
+        for(z in b) {
+            c = b[z].mn || '';
+            if(c) {
+                if(!d++) a.push('音频资源(Audio Resources): ');
+                a.push(c);
+            }
+        }
+        d = a.length;
+        x = RV.cw / 2;
+        y = (RV.ch-38*d) / 2;
+        for(z=0; z<a.length; z++) {
+            RV.txt(a[z], 'rf', x, y+38*z, 32, '#fff', 'center');
+        }
+    },
+    
+    sinit: (A) => { // sprite init
+        var a,b,c,d,o,z;
+        a = RV.ini2 || {};
+        if(RV.slib[a.sr.bg.id]) {
             o = {
-                cw: RV.cw,
-                ch: RV.ch,
                 sc: a.sr.bg.sc,
                 sr: a.sr.bg.sr,
                 sh: a.sr.bg.sh,
-                hr: a.sr.bg.hr
+                ss: a.sr.bg.ss,
+                sb: a.sr.bg.sb,
+                sa: a.sr.bg.sa,
+                hr: a.sr.bg.hr,
             };
             RV.slib[a.sr.bg.id](o);
-            RV.bgs = 1;
         }
         
-        RV.CTX.clearRect(0, 0, RV.cw, RV.ch);
-        RV.CTX.globalCompositeOperation = 'source-over';
-        RV.CTX.shadowBlur = 0;
-        RV.CTX.drawImage(RV.CVT, 0, 0);
-        RV.CTX.globalCompositeOperation = 'lighter';
+        if(RV.slib[a.sr.mot.id]) {
+            o = {
+                sc: a.sr.mot.sc,
+                sr: a.sr.mot.sr,
+                sp: a.sr.mot.sp,
+                sh: a.sr.mot.sh,
+                ss: a.sr.mot.ss,
+                sb: a.sr.mot.sb,
+                sa: a.sr.mot.sa,
+            };
+            RV.slib[a.sr.mot.id](o);
+        }
         
-        o = {
-            cw: RV.cw,
-            ch: RV.ch,
-            sc: a.sr.mot.sc,
-            sr: a.sr.mot.sr,
-            ss: a.sr.mot.ss
-        };
-        if(RV.slib[a.sr.mot.id]) RV.slib[a.sr.mot.id](o);
+        if(RV.slib[a.sr.ado.id]) {
+            for(z in RV.adoL) {
+                if(!RV.ana) {
+                    RV.ana = RV.adoL[z]['ana'];
+                    RV.u8a = new Uint8Array(360);
+                    RV.msd = RV.adoL[z]['msd']
+                    break;
+                }
+            }
+            
+            o = {
+                x: RV.cw / 2,
+                y: RV.ch / 2,
+                r: Math.min(RV.cw, RV.ch) * .3,
+                b: a.sr.ado.bs || 1,
+            };
+            RV.slib[a.sr.ado.id](o);
+        }
         
-        o = {
-            b: a.sr.ado.bs || 1,
-            x: RV.cw / 2,
-            y: RV.ch / 2,
-            r: Math.min(RV.cw, RV.ch) * .3,
-            u: RV.u8a,
-            ana: RV.ana,
-            ctx: RV.CTX
-        };
-        if(RV.slib[a.sr.ado.id]) RV.slib[a.sr.ado.id](o);
+        if(RV.slib[a.sr.mat.id]) {
+            o = {
+                sh: a.sr.mat.sh,
+                ss: a.sr.mat.ss,
+                sb: a.sr.mat.sb,
+                sa: a.sr.mat.sa,
+            };
+            RV.slib[a.sr.mat.id](o);
+        }
+        
+        if(RV.slib[a.sr.act.id]) {
+            o = {
+                sh: a.sr.act.sh,
+                ss: a.sr.act.ss,
+                sb: a.sr.act.sb,
+                sa: a.sr.act.sa,
+            };
+            RV.slib[a.sr.act.id](o);
+        }
+        
+        RV.pd();
     },
     
-    pm: (A) => { // play music
-        var a,b,c,d,z;
-        a = RV.adoL;
-        for(z in a) {
-            if(!RV.ana) {
-                RV.ana = a[z]['ana'];
-                RV.u8a = new Uint8Array(360);
+    ps: (A) => { // play sprite
+        var a,b,c,d,o;
+        a = RV.ini2 || {};
+        RV.CTX.clearRect(0, 0, RV.cw, RV.ch);
+        RV.CTX.globalCompositeOperation = 'lighter';
+        if(RV.slib[a.sr.bg.id]) RV.slib[a.sr.bg.id]();
+        if(RV.slib[a.sr.mot.id]) RV.slib[a.sr.mot.id]();
+        if(RV.slib[a.sr.ado.id]) RV.slib[a.sr.ado.id]();
+        RV.pd();
+    },
+    
+    pd: (A) => { // play data
+        var a,b,c,d,o,z;
+        RV.adtArr = [];
+        a = RV.adtL;
+        o = RV.ini2 || {};
+        if(!a) return;
+        if(!RV.pdInit) {
+            a.pp = 't1'; // play progress
+            a.pb = RV.PG; // play begin
+            a.pe = 1000*3; // play end
+            a.ps = 1; // play state
+            RV.pdInit = 1;
+            return;
+        }
+        
+        if(a.pp=='t1' && a.ps) {
+            if((a.pb+a.pe) > RV.PG) {
+                RV.txt(a.t1, 't1');
+                return;
+            } else {
+                a.pp = 0;
+                a.ps = 0;
             }
-            if(RV.PS == 1 && !a[z].ps) {
-                if(!a[z].pb) a[z].st();
-                else if(a[z].pb && a[z].pb*1000 < RV.PG) a[z].st();
-            } else if(!RV.PS && a[z].ps == 1) {
-                a[z].sp();
-            } else if(a[z].pe && a[z].pe*1000 < RV.PG && a[z].ps == 1) {
-                a[z].sp();
+        }
+        
+        if(!a.ps) {
+            if(a.pp >= a.tl.length) {
+                a.pb = RV.PG;
+                a.pe = 1000*5;
+                a.ps = 3;
+                return;
+            }
+            a.ps = 1;
+            if(a.tl == false) return;
+            a.tl[a.pp] = a.tl[a.pp] || {};
+            a.pb = RV.PG;
+            a.pet2 = 1000*3;
+            a.pe = parseInt(a.tl[a.pp].d1) || 15;
+            if(a.pe < 10) a.pe = 10;
+            a.pe = 1000*a.pe;
+            if(a.tl[a.pp].dl == false) return;
+            
+        } else if(a.ps == 1) {
+            if(a.tl[a.pp].t2 && (a.pb+a.pet2) > RV.PG) RV.txt(a.tl[a.pp].t2, 't2');
+            if((a.pb+a.pe) > RV.PG) {
+                if(a.tl[a.pp].tp == 1) {
+                    if(RV.slib[o.sr.mat.id]) RV.slib[o.sr.mat.id]({tl: a.pp});
+                } else {
+                    if(RV.slib[o.sr.act.id]) RV.slib[o.sr.act.id]({tl: a.pp});
+                }
+            } else {
+                a.petop = 1000*3;
+                a.ps = 2;
+            }
+            
+        } else if(a.ps == 2) { // 展示排名
+            if((a.pb+a.pe+a.petop) > RV.PG) {
+                if(a.tl[a.pp].tp == 1) {
+                    if(RV.slib[o.sr.mat.id]) RV.slib[o.sr.mat.id]({tl: a.pp});
+                } else {
+                    if(RV.slib[o.sr.act.id]) RV.slib[o.sr.act.id]({tl: a.pp});
+                }
+                
+            } else if(a.pp >= a.tl.length) {
+                a.pb = RV.PG;
+                a.pe = 1000*5;
+                a.ps = 3;
+            } else {
+                a.pp++;
+                a.ps = 0;
+                a.pb = 0;
+                a.pe = 0;
+                a.pet2 = 0;
+                a.petop = 0;
+            }
+            
+        } else if(a.ps == 3) { // 展示版权信息
+            if((a.pb+a.pe) > RV.PG) {
+                RV.scp();
+            } else {
+                RV.pa(0);
             }
         }
     },
     
     pa: (A) => { // play animation
+        var a = RV.ini2 || {};
+        //CL(performance.memory);
         if(A == 1) {
+            // 动画初始化
             RV.ST = new Date().getTime();
             RV.PG = 0;
+            RV.FP = 0;
             RV.LT = 0;
             RV.PS = 1; // play state: 0=stop, 1=play
-            RV.bgs = 0;
-            RV.mts = 0;
+            RV.pdInit = 0;
+            RV.bgInit = 0;
+            RV.motInit = 0;
+            RV.adoInit = 0;
+            RV.matInit = 0;
+            RV.actInit = 0;
+            RV.assInit = 0;
+            RV.sinit();
             RV.rec();
             RV.loop();
             RV.MR.start();
             
-        } else if(A == 2) {
+        } else if(A == 2) { // pause
             
-        } else if(A == 3) {
+        } else if(A == 3) { // resume
             
         } else {
             cancelAnimationFrame(RV.rafid);
             RV.PS = 0;
-            RV.pm();
+            if(RV.slib[a.sr.ado.id]) RV.slib[a.sr.ado.id]();
             RV.MR.stop();
         }
     },
@@ -2343,22 +3085,21 @@ const RV = RyView = {
         a = new Date();
         b = RV.LT || a.getTime();
         
-        // 动画开始
-        RV.ps();
-        RV.pm();
-        //await RV.slp(50);
         // 动画耗时
+        //await RV.slp(50);
+        RV.ps();
         
         RV.LT = a.getTime();
         c = RV.LT - b;
-        if(c < 1000/RV.FPS) {
+        /*if(c < 1000/RV.FPS) {
             d = 1000/RV.FPS - c;
             //await RV.slp(d);
             RV.slp(d, 1);
             RV.LT = a.getTime();
             c = RV.LT - b;
-        }
-        RV.PG += c; //CL(RV.PG);
+        }*/
+        RV.PG += c;// CL(RV.PG);
+        RV.FP++;
         
         if(RV.PG >= RV.DT) {
             RV.pa(0);
@@ -2369,13 +3110,14 @@ const RV = RyView = {
     
     out: (A) => { // out video
         if(RV.MRDT && RV.MRDT.length > 0) {
-            var a,b,c;
-            c = RV.ini2.out.tp || 'mp4';
+            var a,b,c,d;
+            d = RV.adtL.t1 || 'test';
+            c = RV.ini2.vdo.tp || 'mp4';
             b = URL.createObjectURL(new Blob(RV.MRDT, {type: 'video/'+c}));
             //RV.VDO.src = b;
             a = document.createElement('a');
             a.href = b;
-            a.download = RV.iname || 'test.'+c;
+            a.download = d+'.'+c;
             a.click();
         }
         else return CL('no data!');
@@ -2402,19 +3144,25 @@ const RV = RyView = {
     },
     
     rec: (A) => { // media record
-        var a,b,c,d;
+        var a,b,c,d,e,f;
         a = {'480P':1500000, '720P':3500000, '1080P':7500000};
-        b = a[RV.ini2.out.vs || '720P'] || 3500000;
-        c = RV.ini2.out.vc ||'vp8';
-        d = RV.CV.captureStream(RV.FPS);
+        b = a[RV.ini2.vdo.vs || '720P'] || 3500000;
+        c = RV.ini2.vdo.vc || 'vp8';
+        d = RV.CVX.captureStream(RV.FPS);
+        //if(RV.msd) d.addTrack(RV.msd.stream.getAudioTracks()[0]);
         if(c=='webm' || c=='mpeg') c = 'video/' + c;
         else c = 'video/webm;codecs=' + c;
+        e = new MediaStream([d.getVideoTracks()[0], RV.msd.stream.getAudioTracks()[0]]);
+        //f = navigator.mediaDevices.getUserMedia({video:false, audio:true});
+        //d.getVideoTracks().forEach(v => f.addTrack(v));
+        //RV.MR = new MediaRecorder(e, {
         RV.MR = new MediaRecorder(d, {
             mimeType: c,
             audioBitsPerSecond: 128000,
-            videoBitsPerSecond: b
+            videoBitsPerSecond: b,
+            //bitsPerSecond: 3500000,
         });
-        //RV.MR.stream.addTrack(RV.GT);
+        //if(RV.msd) RV.MR.stream.addTrack(RV.msd.stream.getAudioTracks()[0]);
         RV.MRDT = [];
         RV.MR.ondataavailable = function (e) {
             if (e.data && e.data.size) {
@@ -2426,7 +3174,7 @@ const RV = RyView = {
     },
     
     ado: (A) => { // audio object
-        var a,b,c,d,e,f,i,o,s,z;
+        var a,b,c,d,e,f,i,o,s,t,z;
         A = A || 'bgm/[CCB]BenSound - A New Beginning.mp3';
         if(!RV.adoL) RV.adoL = {};
         o = {};
@@ -2435,6 +3183,7 @@ const RV = RyView = {
         c = a.createAnalyser();
         d = a.createMediaStreamDestination();
         b.connect(c);
+        b.connect(d);
         c.connect(a.destination);
         //CL([a, b, c, d]);
         
@@ -2446,7 +3195,7 @@ const RV = RyView = {
         o.ct = a; // AudioContext
         o.bs = b; // createBufferSource
         o.ana = c; // createAnalyser
-        o.ms = d; // createMediaStreamDestination
+        o.msd = d; // createMediaStreamDestination
         o.ps = 0; // play state
         o.id = i;
         o.pb = 0; // play begin
@@ -2483,6 +3232,8 @@ const RV = RyView = {
             RV.req(A, 2, res => {
                 a.decodeAudioData(res, bf => {
                     o.bf = b.buffer = bf;
+                    t = b.buffer.duration*1000;
+                    if(RV.DT < t) RV.DT = t;
                     if(RV.SMN == 'bm') RV.abm();
                 });
             });
@@ -2504,28 +3255,24 @@ const RV = RyView = {
     },
     
     adt: (A) => { // animation data object
-        var a,b,c,d,e,f;
-        if(!RV.adtL) RV.adtL = {};
-        a = new Date();
-        b = a.getFullYear()+'-'+('0'+a.getDate()).slice(-2);
+        RV.adtL = RV.adtL || {};
         A = A || 0;
-        if(!A) A = 't1 正标题\nt2 副标题\ndt '+b+'\nd1 15\ntp 1\nnm 名称\nvl 0\npi 0\nfa 0\nac 0\nwd \nd2 0';
-        else if(A == 1) A = 't2 副标题\ndt '+b+'\nd1 15\ntp 1\nnm 名称\nvl 0\npi 0\nfa 0\nac 0\nwd \nd2 0';
-        else if(A == 2) A = 'nm 名称\nvl 0\npi 0\nfa 0\nac 0\nwd \nd2 0';
+        if(!A) A = RV.exp1;
+        //if(!A) A = 't1 正标题\nt2 副标题\nd1 15\ntp 1\nnm 名称\nvl 0\npi \nfa \nac \nwd \nd2';
+        else if(A == 1) A = 't2 副标题\nd1 15\ntp 1\nnm 名称\nvl 0\npi \nfa \nac \nwd \nd2';
+        else if(A == 2) A = 'nm 名称\nvl 0\npi \nfa \nac \nwd \nd2';
         
         if(typeof A == 'string') {
             RV.pdt(A);
-            if(RV.SMN == 'bm') RV.aad();
+            if(RV.SMN == 'ad') RV.aad();
             
         } else if(typeof A == 'object') {
-            f = new FileReader();
+            var f = new FileReader();
             f.onload = () => {
-                a.decodeAudioData(f.result, str => {
-                    RV.pdt(str);
-                    if(RV.SMN == 'bm') RV.aad();
-                });
+                RV.pdt(f.result);
+                if(RV.SMN == 'ad') RV.aad();
             };
-            f.readAsArrayBuffer(A);
+            f.readAsText(A);
             
         } else {
             return CL('add animation data error');
@@ -2556,178 +3303,601 @@ const RV = RyView = {
     },
     
     slib: { // sprite lib
-        bg_0: (A) => { // background sprite
-            // A.cw: canvas width
-            // A.ch: canvas height
+        bg_lspot: (A) => { // background sprite: light spot
             // A.sc: sprite count for min size(%)
-            // A.rr: radius range
+            // A.sr: sprite radius
             // A.sh: sprite hue
-            // A.hr: sprite hue range
-            var r,x,y,h,s,l,a,b,is,sc,sr,sh,hr,sa,cv;
+            // A.ss: sprite saturation
+            // A.sb: sprite brightness
+            // A.sa: sprite alpha
+            // A.hr: hue range
+            var c,o,r,x,y,z,h,s,b,a,l,is,sc,sr,sh,ss,sb,sa,hr,bl,rgb;
+            A = A || {};
+            c = RV.CTH;
+            cw = RV.cw;
+            ch = RV.ch;
             
-            cv = RV.CTMP;
-            is = Math.min(A.cw, A.ch);
-            sc = Math.floor(is * RV.rr(A.sc || '.30, .35'));
-            sr = A.sr || '.05, .15';
-            sh = RV.rr(A.sh || '0, 360');
-            hr = RV.rr(A.hr || '.75, .95');
-            sa = { // sprite attribute
-                r: sr,
-                b: '10, 40',
-                s: '20, 70',
-                l: '20, 60',
-                a: '0.1, 0.5'
-            }
-            
-            cv.clearRect(0, 0, RV.cw, RV.ch);
-            RV.CTMP.globalCompositeOperation = 'lighter';
-            while (sc--) {
-                r = Math.floor(is * RV.rr(sa.r)),
-                x = RV.rr(0+', '+A.cw),
-                y = RV.rr(0+', '+A.ch),
-                h = RV.hue(sh, hr),
-                s = RV.rr(sa.s),
-                l = RV.rr(sa.l),
-                a = RV.rr(sa.a);
-                b = RV.rr(sa.b),
+            if(!RV.bgInit) {
+                is = Math.min(cw, ch);
+                sc = Math.floor(is * RV.rr(A.sc || '.30, .35'));
+                sr = A.sr || '.05, .15';
+                sh = RV.rr(A.sh || '0, 360');
+                hr = RV.rr(A.hr || '.75, .95');
+                ss = A.ss || '25, 100';
+                sb = A.sb || '55, 100';
+                sa = A.sa || '.1, .5';
+                bl = '20, 60';
                 
-                cv.shadowColor = RV.hsla(h, s, l, a);
-                cv.shadowBlur = b;
-                cv.beginPath();
-                cv.arc(x, y, r, 0, RV.pi2);
-                cv.closePath();
-                cv.fill();
+                c.clearRect(0, 0, cw, ch);
+                c.globalCompositeOperation = 'lighter';
+                while (sc--) {
+                    r = Math.floor(is * RV.rr(sr)),
+                    x = RV.rr(0 + ', ' + cw),
+                    y = RV.rr(0 + ', ' + ch),
+                    h = RV.hue(sh, hr),
+                    s = RV.rr(ss),
+                    b = RV.rr(sb),
+                    a = RV.rr(sa),
+                    l = RV.rr(bl),
+                    rgb = RV.hsb2rgb(h, s, b);
+                    c.shadowColor = 'rgb('+rgb.r+', '+rgb.g+', '+rgb.b+', '+a+')';
+                    c.shadowBlur = l;
+                    c.beginPath();
+                    c.arc(x, y, r, 0, RV.pi2);
+                    c.closePath();
+                    c.fill();
+                }
+                RV.bgInit = 1;
+                return;
             }
+            
+            RV.CTX.drawImage(RV.CVH, 0, 0);
         },
         
-        mot_0: (A) => { // motion sprite
-            // A.cw: canvas width
-            // A.ch: canvas height
+        mot_dpopo: (A) => { // motion sprite: dreamlike popo
             // A.sc: sprite count for min size(%)
-            // A.rr: radius range
-            // A.sr: speed range
-            var c,o,r,x,y,z,is,sc,sr,ss;
+            // A.sr: sprite radius
+            // A.sp: sprite speed
+            // A.sh: sprite hue
+            // A.ss: sprite saturation
+            // A.sb: sprite brightness
+            // A.sa: sprite alpha
+            var c,o,r,x,y,z,cw,ch,is,sc,sr,sp,sh,ss,sb,sb2,sa,rgb,rgb2,rg,lg;
+            A = A || {};
+            c = RV.CTX;
+            cw = RV.cw;
+            ch = RV.ch;
             
-            if(!RV.mts) {
-                RV.mtsArr = [];
-                is = Math.min(A.cw, A.ch);
+            if(!RV.motInit) { // init
+                RV.motArr = [];
+                is = Math.min(cw, ch);
                 sc = Math.floor(is * RV.rr(A.sc || '.04, .05'));
                 sr = A.sr || '.05, .15';
-                ss = A.ss || '.5, .8';
-                for (var z = 0; z < sc; z++) {
-                    RV.mtsArr.push({
-                        x: RV.rr(0+', '+A.cw), // x coordinate
-                        y: RV.rr(0+', '+A.ch), // y coordinate
-                        r: Math.floor(is * RV.rr(sr)), // radius
+                sp = A.sp || '.5, .8';
+                sh = A.sh || '0, 360';
+                ss = A.ss || '25, 100';
+                sb = A.sb || '55, 100';
+                sa = A.sa || '.25, .35';
+                for (z = 0; z < sc; z++) {
+                    RV.motArr.push({
+                        x: RV.rr(0+', '+cw),
+                        y: RV.rr(0+', '+ch),
+                        r: Math.floor(is * RV.rr(sr)),
                         a: RV.rr(0+', '+RV.pi2), // angle
-                        s: RV.rr(ss), // speed
-                        t: RV.rr('0, 1000'), // tick
-                        h: RV.rr('0, 360') // hue
+                        s: RV.rr(sp),
+                        sh: RV.rr(sh),
+                        ss: RV.rr(ss),
+                        sb: RV.rr(sb),
+                        sa: RV.rr(sa),
                     });
                 }
-                RV.mts = 1;
+                RV.motInit = 1;
+                return;
             }
             
-            z = RV.mtsArr.length;
-            RV.CTX.shadowBlur = 15;
-            RV.CTX.shadowColor = '#fff';
+            z = RV.motArr.length;
             while (z--) {
-                o = RV.mtsArr[z];
+                o = RV.motArr[z];
+                sb2 = o.sb+10;
+                if(sb2 > 100) sb2 = 100;
+                rgb = RV.hsb2rgb(o.sh, o.ss, o.sb);
+                rgb2 = RV.hsb2rgb(o.sh, o.ss, sb2);
                 o.x += Math.cos(o.a) * o.s;
                 o.y += Math.sin(o.a) * o.s;
                 o.a += RV.rr('-0.05, 0.05');
-                RV.CTX.beginPath();
-                RV.CTX.arc(o.x, o.y, o.r, 0, RV.pi2);
-                //RV.CTX.fillStyle = RV.hsla(0, 0, 100, 0.075 + Math.cos(o.t * 0.02) * 0.05);
-                c = RV.CTX.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
-                c.addColorStop(0, RV.hsla(o.h, 100, 65, 0.08));
-                c.addColorStop(1, RV.hsla(o.h, 100, 65, 0.16 + Math.cos(o.t * 0.02) * 0.05));
-                RV.CTX.fillStyle = c;
-                RV.CTX.fill();
-                if (o.x - o.r > RV.cw) o.x = -o.r;
-                else if (o.x + o.r < 0) o.x = RV.cw + o.r;
-                if (o.y - o.r > RV.ch) o.y = -o.r;
-                else if (o.y + o.r < 0) o.y = RV.ch + o.r;
-                o.t++;
                 
-                x = o.x - o.r * .5;
-                y = o.y - o.r * .5;
-                r = o.r * .2;
-                RV.CTX.beginPath();
-                RV.CTX.arc(x, y, r, 0, RV.pi2);
-                RV.CTX.fillStyle = RV.hsla(0, 0, 100, 0.05 + Math.cos(o.t * 0.02) * 0.05);
-                RV.CTX.fill();
+                rg = c.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+                rg.addColorStop(0, 'rgba('+rgb2.r+', '+rgb2.g+', '+rgb2.b+', 0.1)');
+                rg.addColorStop(1, 'rgba('+rgb.r+', '+rgb.g+', '+rgb.b+', '+o.sa+')');
+                c.fillStyle = rg;
+                c.strokeStyle = rg;
+                c.lineCap = 'round';
+                c.lineJoin = 'round';
+                c.lineWidth = 2;
+                
+                c.beginPath();
+                c.arc(o.x, o.y, o.r, 0, RV.pi2);
+                c.fill();
+                //c.stroke();
+                
+                if (o.x - o.r > cw) o.x = -o.r;
+                else if (o.x + o.r < 0) o.x = cw + o.r;
+                if (o.y - o.r > ch) o.y = -o.r;
+                else if (o.y + o.r < 0) o.y = ch + o.r;
+                
+                // 高光椭圆
+                lg = RV.CTT.createLinearGradient(o.r, o.r*1.6, o.r, 0);
+                lg.addColorStop(0, 'rgba(255, 255, 255, .01)');
+                lg.addColorStop(1, 'rgba(255, 255, 255, 0.2)');
+                RV.CTT.clearRect(0, 0, RV.cw, RV.ch);
+                RV.CTT.globalCompositeOperation = 'source-over';
+                RV.CTT.save();
+                RV.CTT.scale(.5, .35);
+                RV.CTT.beginPath();
+                RV.CTT.arc(o.r, o.r, o.r, 0, RV.pi2);
+                RV.CTT.fillStyle = lg;
+                RV.CTT.fill();
+                c.drawImage(RV.CVT, o.x-o.r*2*.5/2, (o.y-o.r*2*.25/2) - o.r*.65);
+                RV.CTT.restore();
             }
         },
         
-        ado_0: (A) => { // audio visualization
-            // A.b: 圆边框大小
+        ado_eaper: (A) => { // audio sprite: explosion aperture
             // A.x: 圆心X
             // A.y: 圆心Y
             // A.r: 圆半径
-            // A.u: Uint8Array
-            // A.lc: line cap
-            // A.lj: line join
-            // A.ana: analyser
-            // A.ctx: canvas
-            var a, i, j, v, x, y, x0, y0, x1, y1;
+            // A.b: 圆边框大小
+            var a,i,j,o,v,x,y,r,b,p,x0,y0,x1,y1,cw,ch;
+            c = RV.CTX;
+            A = A || {};
+            cw = RV.cw;
+            ch = RV.ch;
             
-            if(!A.ana) return;
-            A.ana.getByteFrequencyData(A.u);
-            RV.CTX.shadowBlur = 0;
-            A.ctx.lineWidth = A.b || 1;
-            A.ctx.lineCap = A.lc || 'round'; // butt round square
-            A.ctx.lineJoin = A.lj || 'round'; // bevel round miter
+            if(!RV.adoInit) {
+                x = A.x || (cw/2);
+                y = A.y || (ch/2);
+                r = A.r || (Math.min(cw, ch) * .3);
+                b = A.b || 1;
+                RV.adoObj = {
+                    x: x,
+                    y: y,
+                    r: r,
+                    b: b,
+                };
+                RV.adoInit = 1;
+                return;
+            }
+            
+            o = RV.adoObj;
+            RV.ana.getByteFrequencyData(RV.u8a);
+            c.shadowBlur = 0;
+            c.lineWidth = o.b || 1;
+            c.lineCap = 'round';
+            c.lineJoin = 'round';
             if (!RV.avisa) RV.avisa = 0;
-            if (RV.avisa++>=360) RV.avisa = 0;
+            if (RV.avisa++ >= 360) RV.avisa = 0;
             a = RV.avisa;
+            
             for (i = j = 0; i < 360; i++) {
-                if (a++>=360) a = 0;
-                A.ctx.beginPath();
-                if (i > 0) A.ctx.moveTo(x1, y1);
+                if (++a>=360) a = 0;
+                c.beginPath();
+                if (i > 0) c.moveTo(x1, y1);
                 if (i < 180) {
                     j++;
-                    v = (A.u[Math.floor(i * 1.8)] || 0) / 2;
+                    v = (RV.u8a[Math.floor(i * 1.8)] || 0) / 2;
                 } else {
                     j--;
-                    v = (A.u[Math.floor(j * 1.5)] || 0) / 2;
+                    v = (RV.u8a[Math.floor(j * 1.5)] || 0) / 2;
                 }
                 // X: R * cos(PI/180*旋转角度) + 圆心X
                 // Y: R * sin(PI/180*旋转角度) + 圆心Y，R正数=顺时针，R负数=逆时针
-                x1 = x = (A.r + v) * Math.cos(Math.PI / 180 * i) + A.x;
-                y1 = y = -(A.r + v) * Math.sin(Math.PI / 180 * i) + A.y;
+                x1 = x = (o.r + v) * Math.cos(Math.PI / 180 * i) + o.x;
+                y1 = y = -(o.r + v) * Math.sin(Math.PI / 180 * i) + o.y;
                 if (!i) {
                     x0 = x;
                     y0 = y;
                 }
-                A.ctx.lineTo(x, y);
-                A.ctx.strokeStyle = 'hsla(' + a + ', 100%, 50%, 1)';
-                A.ctx.stroke();
+                c.lineTo(x, y);
+                c.strokeStyle = 'hsla('+a+', 100%, 50%, 1)';
+                c.stroke();
             }
-            A.ctx.lineTo(x0, y0);
-            A.ctx.stroke();
-        },
-        
-        mat_0: (A) => { // match sprite
-            // A.cw: canvas width
-            // A.ch: canvas height
-            // A.sc: sprite count for min size(%)
-            // A.rr: radius range
-            // A.sr: speed range
-            var c,o,r,x,y,z,is,sc,rr,sr;
+            c.lineTo(x0, y0);
+            c.stroke();
+            c.closePath();
             
+            a = RV.adoL;
+            for(z in a) {
+                if(RV.PS == 1 && !a[z].ps) {
+                    if(!a[z].pb) a[z].st();
+                    else if(a[z].pb && a[z].pb*1000 < RV.PG) a[z].st();
+                } else if(!RV.PS && a[z].ps == 1) {
+                    a[z].sp();
+                } else if(a[z].pe && a[z].pe*1000 < RV.PG && a[z].ps == 1) {
+                    a[z].sp();
+                }
+            }
         },
         
-        act_0: (A) => { // actor sprite
-            // A.cw: canvas width
-            // A.ch: canvas height
-            // A.sc: sprite count for min size(%)
-            // A.rr: radius range
-            // A.sr: speed range
-            var c,o,r,x,y,z,is,sc,rr,sr;
+        mat_rypeter: (A) => { // match sprite: rypeter
+            // A.sh: sprite hue
+            // A.ss: sprite saturation
+            // A.sb: sprite brightness
+            // A.sa: sprite alpha
+            // A.tl: time list index
+            // A.ar: action rate
+            // A.fr: face rate
+            var c,f,i,j,k,l,m,t,o,p,q,r,s,x,y,h,s,s2,b,b2,a,rgb,rgb2,rg,tl,al,ai,ar,fi,fr,cw,ch;
+            c = RV.CTT;
+            A = A || {};
+            cw = RV.cw;
+            ch = RV.ch;
+            o = RV.adtL || {};
+            tl = A.tl || 0;
             
+            al = [
+                {cx1:68, cy1:30, cx2:30, cy2:5, px:5, py:50},
+                {cx1:55, cy1:40, cx2:45, cy2:0, px:5, py:35},
+                {cx1:42, cy1:52, cx2:50, cy2:5, px:8, py:20},
+                {cx1:65, cy1:55, cx2:15, cy2:30, px:15, py:5},
+                {cx1:68, cy1:36, cx2:30, cy2:61, px:5, py:16},
+                
+                {cx1:55, cy1:26, cx2:45, cy2:66, px:5, py:31},
+                {cx1:42, cy1:14, cx2:50, cy2:61, px:8, py:46},
+                {cx1:65, cy1:11, cx2:15, cy2:36, px:15, py:61},
+            ];
+            
+            if(!RV.matInit) {
+                RV.matArr = [];
+                p = {};
+                h = A.sh || '0, 360';
+                s = A.ss || '25, 100';
+                b = A.sb || '55, 100';
+                a = A.sa || '.55, .75';
+                ai = '0, 7';
+                fi = '0, 12';
+                ar = A.ar || RV.ini2.sr.mat.ar || 2;
+                if(ar < 1) ar = 1;
+                if(ar > 5) ar = 5;
+                fr = A.fr || RV.ini2.sr.mat.fr || 90;
+                if(fr < 90) fr = 90;
+                if(fr > 150) fr = 150;
+                
+                o.tl = o.tl || [];
+                for(z=0; z<o.tl.length; z++) {
+                    q = [];
+                    RV.matArr[z] = {}
+                    o.tl[z] = o.tl[z] || {};
+                    if(o.tl[z].dl == false || (parseInt(o.tl[z].tp)||1) != 1) continue;
+                    o.tl[z].dl = o.tl[z].dl || [];
+                    
+                    for(y=0; y<o.tl[z].dl.length; y++) {
+                        t = o.tl[z].dl[y] || {};
+                        n = t.nm || '';
+                        v = RV.nf(t.vl||0, 2);
+                        if(!n) continue;
+                        if(!p[n]) {
+                            p[n] = {
+                                h: RV.rr(h),
+                                s: RV.rr(s),
+                                b: RV.rr(b),
+                                a: RV.rr(a),
+                            };
+                        }
+                        
+                        q.push(v+'_'+n);
+                        p[n] = p[n] || {};
+                        RV.matArr[z][n] = {
+                            h: p[n].h || RV.rr(h),
+                            s: p[n].s || RV.rr(s),
+                            b: p[n].b || RV.rr(b),
+                            a: p[n].a || RV.rr(a),
+                            n: n,
+                            v: v,
+                            x: 10,
+                            y: RV.rr('50, '+(ch-50)),
+                            ai: Math.floor(RV.rr(ai)),
+                            fi: Math.floor(RV.rr(fi)),
+                            ar: ar,
+                            fr: fr,
+                        };
+                    }
+                    
+                    j = ch / q.length;
+                    for(x=0; x<q.length; x++) {
+                        s = q[x].split('_');
+                        y = j*x+10;
+                        RV.matArr[z][s[1]].y = y;
+                    }
+                    
+                    m = 0;
+                    q.sort();
+                    x = q.length;
+                    y = 0
+                    while(x--) {
+                        s = q[x].split('_');
+                        if(s[0] > m) m = s[0];
+                        RV.matArr[z][s[1]].top = ++y;
+                    }
+                    RV.matArr[z].max = m;
+                    
+                }
+                
+                RV.matInit = 1;
+                return;
+            }
+            
+            j = (RV.PG-o.pb) / o.pe;
+            if(j >= 1) j = 1;
+            for(z in RV.matArr[tl]) {
+                if(z == 'max') continue;
+                o = RV.matArr[tl][z];
+                i = o.ai || 0;
+                if(!(RV.FP%o.ar)) i++;
+                if(i < 0 || i > 7) i = 0;
+                f = o.fi || 0;
+                if(!(RV.FP%o.fr) && j<1) f = Math.floor(RV.rr('0, 12')) || 0;
+                if(f < 0 || f > 12) f = 0;
+                
+                s2 = o.s+20;
+                if(s2 > 100) s2 = 100;
+                b2 = o.b+20;
+                if(b2 > 100) b2 = 100;
+                rgb = RV.hsb2rgb(o.h, o.s, o.b);
+                rgb2 = RV.hsb2rgb(o.h, s2, b2);
+                
+                c.clearRect(0, 0, cw, ch);
+                c.globalCompositeOperation = 'source-over';
+                rg = c.createRadialGradient(150, 38, 0, 150, 38, 38);
+                rg.addColorStop(0, 'rgba('+rgb2.r+', '+rgb2.g+', '+rgb2.b+', '+o.a+')');
+                rg.addColorStop(1, 'rgba('+rgb.r+', '+rgb.g+', '+rgb.b+', '+o.a+')');
+                c.fillStyle = rg;
+                c.strokeStyle = rg;
+                c.lineCap = 'round';
+                c.lineJoin = 'round';
+                c.lineWidth = 2;
+                
+                c.beginPath();
+                c.moveTo(100, 33);
+                c.bezierCurveTo(al[i].cx1, al[i].cy1 - 3, al[i].cx2, al[i].cy2 - 2, al[i].px, al[i].py);
+                c.bezierCurveTo(al[i].cx2, al[i].cy2 + 2, al[i].cx1, al[i].cy1 + 3, 100, 43);
+                //c.lineTo(100, 43);
+                c.bezierCurveTo(100, 98, 200, 73, 200, 38);
+                c.bezierCurveTo(200, 3, 100, -22, 100, 33);
+                c.stroke();
+                c.fill();
+                c.closePath();
+                
+                /*for (z = 0; z < al.length; z++) {
+                    c.lineWidth = 1;
+                    c.beginPath();
+                    c.moveTo(100, 33);
+                    c.bezierCurveTo(al[z].cx1, al[z].cy1, al[z].cx2, al[z].cy2, al[z].px, al[z].py);
+                    c.stroke();
+                    c.closePath();
+                }*/
+                
+                x = (cw-250)*j * (o.v/RV.matArr[tl].max);
+                y = o.y;
+                RV.CTX.globalCompositeOperation = 'source-over';
+                RV.CTX.drawImage(RV.CVT, x, y);
+                RV.txt(o.n, 'rf', x+210, y+35, 20, rgb.rgb1);
+                RV.txt(RV.nf(Math.floor(o.v*j),1,4), 'rf', x+210, y+60, 20, rgb.rgb1);
+                if(j < 1) RV.face(f, x+120, y+10);
+                RV.matArr[tl][z].x = x;
+                RV.matArr[tl][z].y = y;
+                RV.matArr[tl][z].ai = i;
+                RV.matArr[tl][z].fi = f;
+                
+                if(j >= 1) {
+                    if(!o.topf) {
+                        if(o.top < 4) {
+                            k = ['xi', 'le', 'gl', 'xy', 'bs', 'cx'];
+                        } else {
+                            k = ['nu', 'ai', 'ku', 'kj', 'je', 'wy'];
+                        }
+                        f = k[Math.floor(RV.rr('0, 5'))] || 'xi';
+                        RV.matArr[tl][z].fi = f;
+                        RV.matArr[tl][z].topf = 1;
+                    }
+                    RV.face((o.fi||0), x+120, y+10);
+                    s = '#888';
+                    if(o.top == 1) s = '#f22';
+                    else if(o.top == 2) s = '#f90';
+                    else if(o.top == 3) s = '#fc0';
+                    RV.CTX.beginPath();
+                    RV.CTX.arc(x+100, y+35, 10, 0, RV.pi2);
+                    RV.CTX.fillStyle = s;
+                    RV.CTX.fill();
+                    RV.CTX.closePath();
+                    RV.txt(o.top, 'rf', x+95, y+42, 20, '#fff');
+                }
+                else RV.matArr[tl][z].topf = 0;
+            }
+            return {w:200, h:76};
         },
         
+        act_rypenn: (A) => { // actor sprite: rypenn
+            // A.sh: sprite hue
+            // A.ss: sprite saturation
+            // A.sb: sprite brightness
+            // A.sa: sprite alpha
+            // A.tl: time list index
+            var c,o,p,q,t,x,y,i,j,k,w,h,s,s2,b,b2,a,z,rgb,rgb2,tl,len,n,rg,cw,ch;
+            c = RV.CTT;
+            A = A || {};
+            cw = RV.cw;
+            ch = RV.ch;
+            o = RV.adtL || {};
+            
+            if(!RV.actInit) {
+                RV.actObj = {};
+                p = {};
+                h = A.sh || '0, 360';
+                s = A.ss || '25, 100';
+                b = A.sb || '55, 100';
+                a = A.sa || '.55, .75';
+                
+                o.tl = o.tl || [];
+                for(z=0; z<o.tl.length; z++) {
+                    o.tl[z] = o.tl[z] || {};
+                    if(o.tl[z].dl == false || (parseInt(o.tl[z].tp)||1) == 1) continue;
+                    o.tl[z].dl = o.tl[z].dl || [];
+                    for(y=0; y<o.tl[z].dl.length; y++) {
+                        t = o.tl[z].dl[y] || {};
+                        n = t.nm || '';
+                        if(!n) continue;
+                        if(!p[n]) {
+                            p[n] = n;
+                            RV.actObj[n] = {
+                                h: RV.rr(h),
+                                s: RV.rr(s),
+                                b: RV.rr(b),
+                                a: RV.rr(a),
+                                x: 0,
+                                y: 0,
+                                n: n,
+                            };
+                        }
+                    }
+                }
+                
+                RV.actInit = 1;
+                return;
+            }
+            
+            tl = A.tl || 0;
+            o.tl[tl] = o.tl[tl] || {};
+            o.tl[tl].dl = o.tl[tl].dl || [];
+            p = {};
+            q = [];
+            for(z=0; z<o.tl[tl].dl.length; z++) {
+                t = o.tl[tl].dl[z] || {};
+                n = t.nm || '';
+                if(!n) continue;
+                if(!p[n]) {
+                    p[n] = n;
+                    q.push(n);
+                }
+            }
+            
+            len = q.length;
+            w = cw/len;
+            if(w > cw*.1) w = cw*.1;
+            j = (cw - w*1.5*len) / 2;
+            i = w/60;
+            k = 0;
+            y = ch - i*80 - 20;
+            for(z=0; z<len; z++) {
+                o = RV.actObj[q[z]];
+                s2 = o.s+20;
+                if(s2 > 100) s2 = 100;
+                b2 = o.b+20;
+                if(b2 > 100) b2 = 100;
+                rgb = RV.hsb2rgb(o.h, o.s, o.b);
+                rgb2 = RV.hsb2rgb(o.h, s2, b2);
+                
+                c.clearRect(0, 0, cw, ch);
+                c.globalCompositeOperation = 'source-over';
+                rg = c.createRadialGradient(30, 50, 0, 30, 50, 30);
+                rg.addColorStop(0, 'rgba('+rgb2.r+', '+rgb2.g+', '+rgb2.b+', '+o.a+')');
+                rg.addColorStop(1, 'rgba('+rgb.r+', '+rgb.g+', '+rgb.b+', '+o.a+')');
+                c.fillStyle = rg;
+                c.strokeStyle = rg;
+                c.lineCap = 'round';
+                c.lineJoin = 'round';
+                c.lineWidth = 2;
+                
+                c.save();
+                c.scale(i, i);
+                c.beginPath();
+                c.moveTo(0, 0);
+                c.lineTo(10, 20);
+                c.lineTo(20, 10);
+                c.lineTo(30, 30);
+                c.lineTo(40, 20);
+                c.lineTo(50, 40);
+                c.lineTo(60, 30);
+                c.lineTo(60, 80);
+                c.lineTo(0, 80);
+                c.lineTo(0, 0);
+                //c.stroke();
+                c.fill();
+                c.closePath();
+                x = j+w*1.5*k++;
+                RV.CTX.globalCompositeOperation = 'source-over';
+                RV.CTX.drawImage(RV.CVT, x, y);
+                c.restore();
+                RV.actObj[q[z]].x = x;
+                RV.actObj[q[z]].y = y;
+            }
+            return {w:60, h:80};
+        },
+        
+        ass_rypeso: (A) => { // assist sprite: rypeso
+            // A.sh: sprite hue
+            // A.ss: sprite saturation
+            // A.sb: sprite brightness
+            // A.sa: sprite alpha
+            var c,h,s,s2,b,b2,a,rgb,rgb2,rg,cw,ch;
+            c = RV.CTT;
+            A = A || {};
+            cw = RV.cw;
+            ch = RV.ch;
+            
+            h = RV.rr(A.sh || '0, 360');
+            s = RV.rr(A.ss || '25, 100');
+            b = RV.rr(A.sb || '55, 100');
+            a = RV.rr(A.sa || '.55, .75');
+            s2 = o.s+20;
+            if(s2 > 100) s2 = 100;
+            b2 = b+20;
+            if(b2 > 100) b2 = 100;
+            rgb = RV.hsb2rgb(h, s, b);
+            rgb2 = RV.hsb2rgb(h, s2, b2);
+            
+            c.clearRect(0, 0, cw, ch);
+            c.globalCompositeOperation = 'source-over';
+            rg = c.createRadialGradient(30, 15, 0, 30, 15, 15);
+            rg.addColorStop(0, 'rgba('+rgb2.r+', '+rgb2.g+', '+rgb2.b+', '+a+')');
+            rg.addColorStop(1, 'rgba('+rgb.r+', '+rgb.g+', '+rgb.b+', '+a+')');
+            c.fillStyle = rg;
+            c.strokeStyle = rg;
+            c.lineCap = 'round';
+            c.lineJoin = 'round';
+            c.lineWidth = 2;
+            
+            c.beginPath();
+            c.moveTo(0, 30);
+            c.bezierCurveTo(0, -10, 60, -10, 60, 30);
+            c.lineTo(55, 33);
+            c.lineTo(50, 30);
+            c.lineTo(45, 33);
+            c.lineTo(40, 30);
+            c.lineTo(35, 33);
+            c.lineTo(30, 30);
+            c.lineTo(25, 33);
+            c.lineTo(20, 30);
+            c.lineTo(15, 33);
+            c.lineTo(10, 30);
+            c.lineTo(5, 33);
+            c.lineTo(0, 30);
+            //c.stroke();
+            c.fill();
+            c.closePath();
+            
+            c.beginPath();
+            c.moveTo(8, 38);
+            c.lineTo(8, 48);
+            c.moveTo(23, 38);
+            c.lineTo(23, 48);
+            c.moveTo(38, 38);
+            c.lineTo(38, 48);
+            c.moveTo(53, 38);
+            c.lineTo(53, 48);
+            c.stroke();
+            c.closePath();
+            return {w:60, h:48};
+        },
     },
     
     test: (A) => { // test
