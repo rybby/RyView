@@ -156,6 +156,7 @@ H5元件（Element）是组成H5精灵的最小单位，它由各种画图命令
 文本工具属性：id（ID），nm（名称name），t（工具tool），x（X坐标），y（Y坐标），w（宽度width），h（高度height），r（旋转rotation），tc（文本内容textContent），ts（文本大小textSize），tn（文本名称textName），ta（水平对齐textAlign（l(left), c(center), r(right)）），tb（垂直对齐textBaseline（t(top), m(middle), b(bottom)））
 
 文本示例：t:t; x:0; y:0; w:100; h:30; tc:文本内容
+
 ![snap_00683.jpg](https://oscimg.oschina.net/oscnet/up-fb94a1b601aa50206dc79df4d1bc91784c7.jpg)
 
 直线工具属性：id（ID），nm（名称name），t（工具tool），x（X坐标），y（Y坐标），w（宽度width），h（高度height），r（旋转rotation），f（填充fill），s（描边stroke），c（封闭路径closePath），fs（填充样式fillStyle），ls（边线样式lineStyle），lw（边线宽度lineWidth），lc（边线头尾lineCap（b(butt), r(round), s(square)）），lj（边线接点lineJoin（m(miter), r(round), b(bevel)）），pl（顶点列表pointList）
