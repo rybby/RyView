@@ -156,26 +156,26 @@ H5元件（Element）是组成H5精灵的最小单位，它由各种画图命令
 文本工具属性：id（ID），nm（名称name），t（工具tool），x（X坐标），y（Y坐标），w（宽度width），h（高度height），r（旋转rotation），tc（文本内容textContent），ts（文本大小textSize），tn（文本名称textName），ta（水平对齐textAlign（l(left), c(center), r(right)）），tb（垂直对齐textBaseline（t(top), m(middle), b(bottom)））
 
 文本示例：t:t; x:0; y:0; w:100; h:30; tc:文本内容
-[snap_00683.jpg](pic/snap_00683.jpg)
+![snap_00683.jpg](pic/snap_00683.jpg)
 
 直线工具属性：id（ID），nm（名称name），t（工具tool），x（X坐标），y（Y坐标），w（宽度width），h（高度height），r（旋转rotation），f（填充fill），s（描边stroke），c（封闭路径closePath），fs（填充样式fillStyle），ls（边线样式lineStyle），lw（边线宽度lineWidth），lc（边线头尾lineCap（b(butt), r(round), s(square)）），lj（边线接点lineJoin（m(miter), r(round), b(bevel)）），pl（顶点列表pointList）
 
 直线示例：t:l; x:0; y:0; w:100; h:30; s:1; pl:0,0, 100,0, 100,30
 直线工具的每个点由1对数据组成，分别代表X坐标与Y坐标。
-[snap_00684.jpg](pic/snap_00684.jpg)
+![snap_00684.jpg](pic/snap_00684.jpg)
 
 路径工具属性：id（ID），nm（名称name），t（工具tool），x（X坐标），y（Y坐标），w（宽度width），h（高度height），r（旋转rotation），f（填充fill），s（描边stroke），c（封闭路径closePath），p（显示路径path），fs（填充样式fillStyle），ls（边线样式lineStyle），lw（边线宽度lineWidth），lc（边线头尾lineCap（b(butt), r(round), s(square)）），lj（边线接点lineJoin（m(miter), r(round), b(bevel)）），pl（顶点列表pointList）
 
 路径示例：t:p; x:0; y:0; w:100; h:30; s:0; p:1; pl:0,0, 0,0, 100,30, 100,30, 100,30, 50,30, 50,30
 路径工具的第一个点由一对数据组成，代表起始顶点的X坐标与Y坐标，以后每个点由3对数据组成，分别代表控点1的X坐标与Y坐标、表控点2的X坐标与Y坐标以及顶点的X坐标与Y坐标。
-[snap_00685.jpg](pic/snap_00685.jpg)
+![snap_00685.jpg](pic/snap_00685.jpg)
 
 多边形工具属性：id（ID），nm（名称name），t（工具tool），x（X坐标），y（Y坐标），w（宽度width），h（高度height），a（边角数量angleCount），r（旋转rotation），f（填充fill），s（描边stroke），c（封闭路径closePath），fs（填充样式fillStyle），ls（边线样式lineStyle），lw（边线宽度lineWidth），lc（边线头尾lineCap（b(butt), r(round), s(square)）），lj（边线接点lineJoin（m(miter), r(round), b(bevel)））
 
 多边形示例：t:g; x:0; y:0; w:100; h:50; a:3; f:1; fs:#f22
 
 多边形工具的a属性指定多边形的边角数量，0=圆形，1=一边形（水滴），2=二边形（树叶、眼睛），3=三边形，4=四边形，以此类推，最大为12边角。
-[snap_00686.jpg](pic/snap_00686.jpg)
+![snap_00686.jpg](pic/snap_00686.jpg)
 
 填充样式（fs）与边线样式（ls）可以使用多种颜色模式，如hex、rgb、hsb、hsl等。颜色取值可以使用默认颜色（=）或相对颜色（.）以及随机颜色（-）与范围颜色（m-n）。如需了解颜色取值原理的网友请自行阅读程序源码中的rc函数，直接搜索“rc: (”即可定位函数位置。
 
@@ -231,8 +231,8 @@ PS：为了节约资源ID，关于元件、精灵等资源的ID第一个字符�
 E2d id:$Ihide1; nm:隐藏; t:g; x:3; y:5.5; w:18; h:12; f:0; s:1; ls:hsba(.:.:-25:.); lw:2; lc:r; a:2.. t:g; a:0; x:9; y:8.5; w:6; h:6; f:1; fs:hsba(.:.:-25:.); s:0
 
 该文本数据是画图工具图层面板的隐藏图标，该图标由一个二边形加一个小圆形（眼珠）组成。多个画图工具之间由两个点号（..）分隔，而各名值对由冒号与分号组成，注意颜色值的各分量值应该用冒号分隔，不能用逗号，因为逗号已经用来分隔各参数了。
-[snap_00687.jpg](pic/snap_00687.jpg)
-[snap_00688.jpg](pic/snap_00688.jpg)
+![snap_00687.jpg](pic/snap_00687.jpg)
+![snap_00688.jpg](pic/snap_00688.jpg)
 
 当你对画图工具的各属性很熟悉之后可以像写CSS样式代码一样写各种图标，当然你也可以通过锐视网页的画图工作区用鼠标绘制，然后导出为H5元件或图片。如何将H5元件显示在网页上？原理很简单，将H5矢量文本数据绘制到离屏canvas，然后再转为data数据赋给图片的src属性即可。
 
